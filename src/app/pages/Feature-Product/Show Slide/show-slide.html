@@ -1,0 +1,14 @@
+<div class="container"  >
+<img [src]="imageShow" alt="">
+  <div class="row">
+    <div class="col-3" *ngFor="let s of imagesSlider; let i=index">
+<img [src]="s" alt="" (click)="OnPressShowImage(i)">
+<i class="nb-close" (click)="OnPressDeleteImage(i)"></i>
+    </div>
+  </div>
+  <div class="Add-ImageSlider">
+   <input type="file" (change)="OnChangeFile($event)" >
+   <button type="button" class="btn btn-primary" (click)="UploadPhoto()">Upload Photo </button>
+  </div>
+</div>
+

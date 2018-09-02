@@ -1,0 +1,46 @@
+<nb-card>
+  <nb-card-header>
+    Smart Table
+  </nb-card-header>
+
+  <nb-card-body>
+
+      <div class="container">
+          <h2>Feature Products</h2>
+       <div class="btn-add-product">
+          <button (click)="onPressAdd()">Add Product</button>
+
+       </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Slider Name</th>
+
+                <th>Remove</th>
+                <th>Edit</th>
+                <th>status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="search-container">
+                <td>  <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductName($event)">
+                  <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                </form></td>
+
+              </tr>
+              <tr *ngFor="let x of data;let i = index" >
+                <td>{{x.firstName}}</td>
+                <td> <button  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
+                <td><button (click)="OnPressEdit(i,x.id)"><i class="fa fa-edit"></i></button></td>
+                <td> <ngx-active-nonActive [DataSource]="x" ></ngx-active-nonActive>  </td>
+                <td> <button type="button" class="btn btn-warning btn-xs"  (click)="OnPressShow(i,x.id)">Show Slider</button> </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+
+  </nb-card-body>
+</nb-card>

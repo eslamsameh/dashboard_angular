@@ -1,0 +1,37 @@
+.container{
+ width: 100%;
+ height: 250px;
+ img{
+   width: 100%;
+   height: 100%;
+ }
+}
+.row{
+  // justify-content: space-between;
+  .col-3{
+
+    width: 200px;
+    height: 100px;
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  i{
+    position: absolute;
+    right: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+
+  }
+}
+}
+.Add-ImageSlider{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  input{
+    margin-top: 10px;
+  }
+
+}
