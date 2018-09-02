@@ -120,12 +120,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Miscellaneous',
-    icon: 'nb-shuffle',
+    title: 'ManageUser',
+    icon: 'nb-person',
     children: [
       {
-        title: '404',
-        link: '/pages/miscellaneous/404',
+        title: 'ALL User',
+        link: '/pages/ManageUser/get-all-users',
+      },
+      {
+        title: 'ALL Suspended Users',
+        link: '/pages/ManageUser/all-suspended-users',
       },
     ],
   },
@@ -151,9 +155,9 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //     },
   //   ],
   // },
-  {
-    title: 'ManageUser',
-    icon: 'nb-person',
-    link: '/pages/ManageUser',
-  },
+  // {
+  //   title: 'ManageUser',
+  //   icon: 'nb-person',
+  //   link: '/pages/ManageUser/get-all-users',
+  // },
 ];

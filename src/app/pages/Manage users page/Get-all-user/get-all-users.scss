@@ -1,0 +1,40 @@
+.nb-close{
+  font-weight: bold;
+}
+
+.btn-search{
+  background: #a4abb3;
+  border: 2px solid #a4abb3;
+}
+.btn-add-product{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+
+  button{
+    background: #00d981;
+    border: 2px solid  #00d981;
+    width: 20%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    color:white;
+}
+  }
+.div-sort{
+  display: flex;
+  justify-content: center;
+  label{
+    margin: 15px;
+
+  }
+  select{
+    width: 25%;
+  }
+}
+.fa{
+  color: black;
+}
+
+
+
