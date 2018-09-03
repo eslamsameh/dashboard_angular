@@ -19,6 +19,19 @@ const routes: Routes = [{
     path: 'featureProducts',
      loadChildren: './Feature-Product/feature-produsts.module#featureProductsModule',
    },
+   {
+    path: 'category',
+     loadChildren: './Category/category.module#categoryModule',
+   },
+   {
+    path: 'artical-category',
+     loadChildren: './ArticalCategory/atrical-category.module#ArticalcategoryModule',
+   },
+   {
+     path:'artical',
+     loadChildren:'./Articals/artical.module#ArticalsModule'
+
+   }
 ]
 
 

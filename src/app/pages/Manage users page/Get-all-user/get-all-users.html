@@ -1,16 +1,10 @@
 <nb-card>
-  <nb-card-header>
-    Smart Table
-  </nb-card-header>
+
 
   <nb-card-body>
 
     <div class="container">
-      <h2>Products</h2>
-      <div class="btn-add-product">
-        <button (click)="onPressAdd()">Add Product</button>
-      </div>
-
+      <h2>All User</h2>
       <div>
         <div class="form-group div-sort">
           <label for="sel1">Sort By</label>
@@ -40,7 +34,13 @@
             <th>Manage</th>
           </tr>
           <tr class="search-container">
-            <td></td>
+            <td>
+
+                  <button *ngIf="SelectALL" type="button" class="btn btn-secondary btn-xs" (click)="OnPressSelectAll()">Select All</button>
+                  <button *ngIf="!SelectALL" type="button" class="btn btn-secondary btn-xs" (click)="OnPressNonSelectAll()">NonSelect </button>
+
+
+            </td>
             <td>
               <form action="/action_page.php">
                 <input type="text" placeholder="Search.." name="search" (keyup)="searchByFirstName($event)">
@@ -73,7 +73,7 @@
             <td>
               <div class="checkbox">
                 <label>
-                  <input type="checkbox" (change)="onPressSelect(x.id,i)">
+                  <input type="checkbox" name="foo" (change)="onPressSelect(x.id,i)">
                 </label>
               </div>
             </td>
@@ -84,7 +84,7 @@
             <td>
               <ngx-select-comp [DataSource]="x" (data)="eventHandler($event)" (dataRemove)=eventHand($event)></ngx-select-comp>
             </td>
-          
+
             <td>
               <button (click)="OnPressEdit(i,x.id)">
                 <i class="fa fa-edit"></i>

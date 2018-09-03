@@ -33,7 +33,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-compose',
     children: [
       {
-        title: 'Add New Feature Product',
+        title: 'Add Feature Product',
         link: '/pages/featureProducts/add-new-feature-product',
       },
       {
@@ -43,38 +43,51 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Components',
-    icon: 'nb-gear',
+    title: 'Categories',
+    icon: 'nb-keypad',
+    link: '/pages/category',
     children: [
       {
-        title: 'Tree',
-        link: '/pages/components/tree',
-      }, {
-        title: 'Notifications',
-        link: '/pages/components/notifications',
+        title: 'All Category',
+        link: '/pages/category/get-all-category',
       },
+      {
+        title: 'Add Category',
+        link: '/pages/category/add-new-category',
+      },
+
     ],
   },
   {
-    title: 'Maps',
-    icon: 'nb-location',
+    title: 'Categories For Articals',
+    icon: 'nb-keypad',
+    link: '/pages/artical-category',
     children: [
       {
-        title: 'Google Maps',
-        link: '/pages/maps/gmaps',
+        title: 'All Category',
+        link: '/pages/artical-category/get-all-artical-category',
       },
       {
-        title: 'Leaflet Maps',
-        link: '/pages/maps/leaflet',
+        title: 'Add Category',
+        link: '/pages/artical-category/add-new-artical-category',
+      },
+
+    ],
+  },
+  {
+    title: 'Articals',
+   icon: 'nb-keypad',
+   link: '/pages/artical',
+    children: [
+      {
+        title: 'Add Artical',
+        link: '/pages/artical/add-new-artical',
       },
       {
-        title: 'Bubble Maps',
-        link: '/pages/maps/bubble',
+        title: 'All Articals',
+        link: '/pages/artical/get-all-articals',
       },
-      {
-        title: 'Search Maps',
-        link: '/pages/maps/searchmap',
-      },
+
     ],
   },
   {

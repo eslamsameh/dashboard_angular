@@ -1,0 +1,87 @@
+.nb-close{
+  font-weight: bold;
+}
+
+.btn-search{
+  background: #a4abb3;
+  border: 2px solid #a4abb3;
+}
+.btn-add-product{
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+
+  button{
+    background: #00d981;
+    border: 2px solid  #00d981;
+    width: 20%;
+    height: 40px;
+    font-size: 20px;
+    border-radius: 5px;
+    color:white;
+}
+  }
+  .image-td{
+    width: 100px;
+    height: 100px;
+  }
+
+
+tr{
+  text-align: center;
+
+}
+td{
+  padding: 4%;
+}
+
+.search-container{
+  display: flex;
+  justify-content: space-between;
+  margin: 4% 2%;
+  .search{
+    width: 250px;
+    height:40px;
+    color: black;
+    text-align: center;
+  }
+  i{
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: -16px;
+    width: 30px;
+  }
+
+}
+ .div-sort{
+   width: 40%;
+   display: flex;
+   label{
+    white-space: nowrap;
+    margin: 13px;
+   }
+
+ }
+i{
+  color: black;
+}
+.btn-submit-range{
+  margin: 10px 0px;
+  display: flex;
+  justify-content: space-around;
+}
+.card{
+  width: 50%;
+    background-color: transparent;
+    box-shadow: black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    margin: auto;
+    input{
+      width: 90%;
+      margin: auto;
+    }
+    label{
+      margin: 17px 28px;
+    }
+}

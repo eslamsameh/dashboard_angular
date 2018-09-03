@@ -27,6 +27,11 @@ OrginalData:any;
   OnPressDeleteSuspend(idx,id){
     this.data.splice(idx,1)
   }
+  OnPressManageUser(idx,id){
+    this.router.navigate(['/pages/ManageUser/manage-user/', id]);
+
+
+  }
 
   searchByFirstName(event){
     let newArray=[];

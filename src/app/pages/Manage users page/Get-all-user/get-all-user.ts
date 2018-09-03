@@ -14,9 +14,7 @@ export class GelAllUserPageComponent {
   OrginalData:any;
   childData:any=[];
   selectedItems =[];
-
-
-
+  SelectALL:any=true;
 
     constructor(private service: SmartTableService,public router:Router) {
       this.data = this.service.getData();
@@ -29,9 +27,7 @@ export class GelAllUserPageComponent {
     OnPressEdit(idx,id){
       this.router.navigate(['/pages/ManageUser/manage-user/', id]);
     }
-    onPressAdd(){
-      this.router.navigateByUrl('/pages/products/add-new-product');
-    }
+
     searchByFirstName(event){
       let newArray=[];
   let value =event.target.value.toUpperCase();
@@ -104,5 +100,19 @@ console.log(this.selectedItems)
 
    }
 
+ }
+ OnPressSelectAll(){
+this.SelectALL=!this.SelectALL
+let checkboxes = document.getElementsByName('foo') as HTMLCollectionOf<HTMLInputElement>;
+for(let i=0, n=checkboxes.length;i<n;i++) {
+  checkboxes[i].checked = true;
+}
+ }
+ OnPressNonSelectAll(){
+  this.SelectALL=!this.SelectALL
+  let checkboxes = document.getElementsByName('foo') as HTMLCollectionOf<HTMLInputElement>;
+for(let i=0, n=checkboxes.length;i<n;i++) {
+  checkboxes[i].checked = false;
+}
  }
   }

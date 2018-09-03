@@ -1,0 +1,85 @@
+<nb-card>
+    <nb-card-header>
+      Smart Table
+    </nb-card-header>
+
+    <nb-card-body>
+<div *ngIf="PriceRange" >
+  <div class="card">
+      <div data-role="main" class="ui-content">
+          <form method="post" action="/action_page_post.php">
+            <div data-role="rangeslider">
+              <label for="price-min">{{min}}</label>
+              <input type="range" name="price-min" id="price-min" [(ngModel)]="min" value="min" min="0" max="1000">
+              <label for="price-max">{{max}}</label>
+              <input type="range" name="price-max" id="price-max" [(ngModel)]="max" value="max" min="0" max="1000">
+
+            </div>
+             <div class="btn-submit-range">
+               <button type="button" class="btn btn-secondary " (click)="OnPressSearch()">Submit</button>
+               <button type="button" class="btn btn-secondary " (click)="OnPressCancel()">Cancel</button>
+            </div>
+              <p></p>
+            </form>
+        </div>
+  </div>
+
+    </div>
+
+
+
+
+        <div class="container">
+            <h2>Categories</h2>
+         <div class="btn-add-product">
+            <button (click)="onPressAdd()">Add Category</button>
+
+
+         </div>
+         <div class="search-container">
+            <form action="/action_page.php">
+             <input type="text" placeholder="Search.." name="search" class="search" (keyup)="searchByProductName($event)">
+             <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+           </form>
+           <div class="form-group div-sort">
+              <label for="sel1">Sort By</label>
+              <select class="form-control" id="sel1" (change)="OnChangeSelectSortBy($event)" >
+                <option >Select Sorting</option>
+                <option >date added</option>
+                <option >Last Update </option>
+                <option >Price</option>
+              </select>
+              </div>
+
+         </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Category Name</th>
+                  <th>Category image</th>
+                  <th>Category Description</th>
+                  <th>Parent Category</th>
+                  <th> Products</th>
+                  <th>Remove</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let x of data;let i = index" >
+                  <td style=" padding: 4%;">{{x.CategoryName}}</td>
+                  <td><img class="image-td" [src]="x.imageCategory" alt=""></td>
+                  <td style=" padding: 4%;">{{x.briefdescription}}</td>
+                  <td style=" padding: 4%;">{{x.CategoryParent}}</td>
+                  <td style=" padding: 4%;">{{x.numberofproducts}}</td>
+                  <td style=" padding: 4%;"> <button  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
+                  <td style=" padding: 4%;"><button (click)="OnPressEdit(i,x.id)"><i class="fa fa-edit"></i></button></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+
+    </nb-card-body>
+  </nb-card>

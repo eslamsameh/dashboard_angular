@@ -6,11 +6,8 @@
     <nb-card-body>
 
         <div class="container">
-            <h2>Products</h2>
-         <!-- <div class="btn-add-product">
-            <button (click)="onPressAdd()">Add Product</button>
+            <h2> All Suspended Users</h2>
 
-         </div> -->
             <table class="table">
               <thead>
                 <tr>
@@ -19,6 +16,7 @@
                   <th>UserName</th>
                   <th>Remove</th>
                   <th>Remove Suspend</th>
+                  <th>Manage User</th>
                 </tr>
               </thead>
               <tbody>
@@ -40,8 +38,10 @@
                   <td>{{x.firstName}}</td>
                   <td>{{x.lastName}}</td>
                   <td>{{x.username}}</td>
-                  <td> <button  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
-                  <td><button (click)="OnPressDeleteSuspend(i,x.id)"><i class="nb-close"></i> Delete Suspend</button></td>
+                  <td> <button type="button" class="btn btn-secondary btn-xs"  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
+                  <td><button  type="button" class="btn btn-secondary btn-xs"  (click)="OnPressDeleteSuspend(i,x.id)"><i class="nb-close"></i> Delete Suspend</button></td>
+                  <td><button  type="button" class="btn btn-secondary btn-xs"  (click)="OnPressManageUser(i,x.id)"> Manage user</button></td>
+
                 </tr>
 
               </tbody>
