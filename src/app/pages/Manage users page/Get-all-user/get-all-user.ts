@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 
 import { SmartTableService } from '../../../@core/data/smart-table.service';
 import { Router } from '@angular/router';
-import {selectComponent} from './select-users/select-user'
 
 @Component({
   selector: 'ngx-manage-user-table',
@@ -12,17 +11,19 @@ import {selectComponent} from './select-users/select-user'
 export class GelAllUserPageComponent {
   data:any;
   OrginalData:any;
-  childData:any=[];
   selectedItems =[];
   SelectALL:any=true;
+  index:any;
+  idData:any;
+  myRadio:any;
+  OpenDate:any=false;
+  from:any;
+  to:any;
 
     constructor(private service: SmartTableService,public router:Router) {
       this.data = this.service.getData();
       this.OrginalData=this.data;
-
-
     }
-
 
     OnPressEdit(idx,id){
       this.router.navigate(['/pages/ManageUser/manage-user/', id]);
@@ -82,25 +83,10 @@ export class GelAllUserPageComponent {
         this.selectedItems.push(id);
 
       }
-
 console.log(this.selectedItems)
-
-
     }
-    eventHandler(event){
-      this.childData.push(event);
-      console.log(this.childData)
- }
- eventHand(event){
-   for (let index = 0; index < this.childData.length; index++) {
-     if(this.childData[index]==event){
 
-      this.childData.splice(this.childData[index-1],1);
-     }
 
-   }
-
- }
  OnPressSelectAll(){
 this.SelectALL=!this.SelectALL
 let checkboxes = document.getElementsByName('foo') as HTMLCollectionOf<HTMLInputElement>;
@@ -115,4 +101,30 @@ for(let i=0, n=checkboxes.length;i<n;i++) {
   checkboxes[i].checked = false;
 }
  }
+
+ OnPressOk(){
+  this.data[this.index].is_suspend=!this.data[this.index].is_suspend;
+ }
+
+ OnPressClose(){
+  this.data[this.index].is_suspend=true
+ }
+
+ OnChaneg(event){
+  if(this.myRadio=="Date"){;
+    this.OpenDate=true;
+  }
+  else{
+    this.OpenDate=false;
+  }
+}
+
+OnPressSuspend(i,id){
+  this.index=i;
+  this.idData=id
+  if(this.data[i].is_suspend==false){
+    this.data[i].is_suspend=true;
+  }
+ }
+
   }

@@ -12,10 +12,14 @@
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    input{
+      padding: 2px;
+    }
     button{
       border-radius: 10px;
       width: 80%;
       height: 45px;
+      margin-top: -7px;
     }
     img{
       width: 100%;

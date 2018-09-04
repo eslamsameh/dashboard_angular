@@ -7,15 +7,14 @@ import {Router} from '@angular/router';
   templateUrl: './add-new-products.html',
 })
 export class addNewProductComponent {
-  starRate = 2;
-  heartRate = 4;
+
 constructor(public router:Router) {
 
 
 }
 
   OnPressSubmit(){
-    this.router.navigateByUrl('/pages/ManageUser');
+    this.router.navigateByUrl('/pages/products/get-all-products');
   }
 }
 

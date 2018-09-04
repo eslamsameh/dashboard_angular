@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {GelAllUserPageComponent} from './Get-all-user/get-all-user';
 import {ManageUserComponent} from './Manage-Single-User/manage-single-user';
 import {UserComponent} from './User';
-import {selectComponent} from './Get-all-user/select-users/select-user'
 import { allSuspendedUserPage } from './all-suspended-users/all-suspended-users';
 const routes: Routes = [{
   path: '',
@@ -45,6 +44,6 @@ export const routedComponents = [
  ManageUserComponent,
  GelAllUserPageComponent,
  UserComponent,
- selectComponent,
+
  allSuspendedUserPage
 ];
