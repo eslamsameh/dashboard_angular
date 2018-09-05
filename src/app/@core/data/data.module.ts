@@ -18,6 +18,7 @@ import { ProfitBarAnimationChartService } from './profit-bar-animation-chart.ser
 import { LayoutService } from './layout.service';
 import {categoryService} from './category.service'
 import { ArticalTagesService } from './ArticalTags.service';
+import { adminUsersSservices } from './admin-users.service';
 
 const SERVICES = [
   UserService,
@@ -36,7 +37,8 @@ const SERVICES = [
   ProfitBarAnimationChartService,
   LayoutService,
   categoryService,
-  ArticalTagesService
+  ArticalTagesService,
+  adminUsersSservices
 ];
 
 @NgModule({

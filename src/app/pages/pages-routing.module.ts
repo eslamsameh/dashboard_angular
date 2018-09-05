@@ -29,9 +29,18 @@ const routes: Routes = [{
    },
    {
      path:'artical',
-     loadChildren:'./Articals/artical.module#ArticalsModule'
+     loadChildren:'./Articals/artical.module#ArticalsModule',
 
-   }
+   },
+   {
+    path: 'manage-admin',
+     loadChildren: './Manage-Admins/manage-admin.module#ManageAdminsModule',
+
+   },
+   {
+    path: 'message-notification',
+     loadChildren: './message-notfication/message-notification.module#MessageAndNotificatiomModule',
+   },
 ]
 
 

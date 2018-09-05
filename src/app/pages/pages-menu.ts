@@ -91,37 +91,27 @@ export const MENU_ITEMS: NbMenuItem[] = [
     ],
   },
   {
-    title: 'Charts',
+    title: 'Manage Admin',
     icon: 'nb-bar-chart',
+    link: '/pages/manage-admin',
     children: [
       {
-        title: 'Echarts',
-        link: '/pages/charts/echarts',
+        title: 'Add New Admin',
+        link: '/pages/manage-admin/add-new-admin',
       },
       {
-        title: 'Charts.js',
-        link: '/pages/charts/chartjs',
+        title: 'All Admins',
+        link: '/pages/manage-admin/get-all-manage-admins',
       },
-      {
-        title: 'D3',
-        link: '/pages/charts/d3',
-      },
+
     ],
   },
   {
-    title: 'Editors',
+    title: 'Messages',
     icon: 'nb-title',
-    children: [
-      {
-        title: 'TinyMCE',
-        link: '/pages/editors/tinymce',
-      },
-      {
-        title: 'CKEditor',
-        link: '/pages/editors/ckeditor',
-      },
-    ],
+    link: '/pages/message-notification//message',
   },
+
   {
     title: 'Tables',
     icon: 'nb-tables',
@@ -146,6 +136,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       },
     ],
   },
+
   // {
   //   title: 'Auth',
   //   icon: 'nb-locked',

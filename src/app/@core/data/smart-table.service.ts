@@ -10,7 +10,7 @@ export class SmartTableService {
     username: '@mdo',
     email: 'mdo@gmail.com',
     age: '28',
-    is_suspend:true
+    is_suspend:true,
   }, {
     id: 2,
     firstName: 'Jacob',

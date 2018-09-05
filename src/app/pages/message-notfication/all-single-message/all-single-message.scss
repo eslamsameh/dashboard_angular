@@ -1,0 +1,33 @@
+.card{
+  background: transparent;
+  height: 424px;
+    overflow-y: scroll;
+}
+.container{
+  margin: 10px;
+  div{
+    width: 30%;
+    height: 100%;
+    border-radius: 10px;
+  }
+}
+.input-group{
+  position: fixed;
+  width: 76%;
+  right: 3%;
+  bottom: 15%;
+  button{
+    margin-top: 0px;
+    height: 36px;
+    margin-top: -2px
+
+  }
+}
+.direction-ltr{
+  direction:ltr;
+  float: left;
+}
+.direction-rtl{
+  direction:rtl;
+  float: right;
+}

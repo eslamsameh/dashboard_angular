@@ -1,0 +1,53 @@
+<nb-card>
+    <nb-card-header>
+
+    </nb-card-header>
+
+    <nb-card-body>
+
+        <div class="container">
+            <h2>Messages For Users</h2>
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>FirstName</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>MessageTitle</th>
+                  <th>Remove</th>
+                  <th>Open Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="search-container">
+                  <td>  <form action="/action_page.php">
+                    <input type="text" placeholder="Search.."  class="search" name="search" (keyup)="searchByFirstName($event)">
+                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                  </form></td>
+                  <td>  <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." class="search" name="search" (keyup)="searchByLastName($event)">
+                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                  </form></td>
+                  <td>  <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." class="search" name="search"(keyup)="searchByEmail($event)">
+                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                  </form></td>
+                </tr>
+                <tr *ngFor="let x of data;let i = index" >
+                  <td>{{x.firstName}}</td>
+                  <td>{{x.lastName}}</td>
+                  <td>{{x.email}}</td>
+                  <td>{{x.Role}}</td>
+                  <td> <button  type="button" class="btn btn-primary btn-xs" (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
+                  <td><button  type="button" class="btn btn-primary btn-xs"
+                    data-dismiss="modal" data-toggle="modal" data-target="#myModal"
+                      (click)="OnPressShowMessage(i,x.id)">Show Message</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+    </nb-card-body>
+  </nb-card>

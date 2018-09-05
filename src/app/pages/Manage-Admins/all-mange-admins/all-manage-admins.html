@@ -1,0 +1,55 @@
+<nb-card>
+    <nb-card-header>
+      Smart Table
+    </nb-card-header>
+
+    <nb-card-body>
+
+        <div class="container">
+            <h2>Admins Users</h2>
+         <div class="btn-add-product">
+            <button (click)="onPressAdd()">Add Admin User</button>
+
+         </div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>FirstName</th>
+                  <th>Last Name</th>
+                  <th>Email</th>
+                  <th>Role</th>
+                  <th>Remove</th>
+                  <th>Edit</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="search-container">
+                  <td>  <form action="/action_page.php">
+                    <input type="text" placeholder="Search.."  class="search" name="search" (keyup)="searchByFirstName($event)">
+                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                  </form></td>
+                  <td>  <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." class="search" name="search" (keyup)="searchByLastName($event)">
+                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                  </form></td>
+                  <td>  <form action="/action_page.php">
+                    <input type="text" placeholder="Search.." class="search" name="search"(keyup)="searchByEmail($event)">
+                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                  </form></td>
+                </tr>
+                <tr *ngFor="let x of data;let i = index" >
+                  <td>{{x.firstName}}</td>
+                  <td>{{x.lastName}}</td>
+                  <td>{{x.email}}</td>
+                  <td>{{x.Role}}</td>
+                  <td> <button  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
+                  <td><button (click)="OnPressEdit(i,x.id)"><i class="fa fa-edit"></i></button></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+
+    </nb-card-body>
+  </nb-card>
