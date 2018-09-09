@@ -2,9 +2,9 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'E-commerce',
+    title: 'Main Page',
     icon: 'nb-e-commerce',
-    link: '/pages/dashboard',
+    link: '/pages/main',
     home: true,
   },
 
@@ -112,16 +112,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/message-notification//message',
   },
 
-  {
-    title: 'Tables',
-    icon: 'nb-tables',
-    children: [
-      {
-        title: 'Smart Table',
-        link: '/pages/tables/smart-table',
-      },
-    ],
-  },
+  // {
+  //   title: 'Tables',
+  //   icon: 'nb-tables',
+  //   children: [
+  //     {
+  //       title: 'Smart Table',
+  //       link: '/pages/tables/smart-table',
+  //     },
+  //   ],
+  // },
   {
     title: 'ManageUser',
     icon: 'nb-person',
@@ -135,6 +135,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/ManageUser/all-suspended-users',
       },
     ],
+  },
+   {
+    title: 'Profile',
+    icon: 'nb-person',
+    link: '/pages/profile',
   },
 
   // {
@@ -159,9 +164,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
   //     },
   //   ],
   // },
-  // {
-  //   title: 'ManageUser',
-  //   icon: 'nb-person',
-  //   link: '/pages/ManageUser/get-all-users',
-  // },
+
 ];

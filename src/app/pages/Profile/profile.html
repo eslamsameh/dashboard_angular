@@ -1,0 +1,59 @@
+<div class="row">
+  <div class="col-lg-6">
+    <nb-card>
+      <nb-card-header>{{data.userName}}</nb-card-header>
+      <nb-card-body>
+        <div class="input-group">
+          <img src="../../../../assets/images/camera1.jpg" alt="">
+        </div>
+        <div class="input-group">
+          <input type="file" name="pic" accept="image/*" class="form-control" />
+          <button class="btn btn-primary btn-lg btn-upload-img">Upload Photo</button>
+        </div>
+
+        <div class="input-group">
+          <label>First Name</label>
+          <input type="text" placeholder="First Name" [value]="data.FirstName" [(ngModel)]="data.FirstName" class="form-control" />
+        </div>
+        <div class="input-group">
+          <label>User Name</label>
+          <input type="text" placeholder="Last Name" [value]="data.userName" [(ngModel)]="data.userName" class="form-control" />
+        </div>
+
+        <div class="input-group">
+          <label>Age</label>
+          <input type="text" placeholder="Age" [value]="data.Age" [(ngModel)]="data.Age" class="form-control" />
+        </div>
+        <div class="input-group">
+          <label>Phone</label>
+          <input type="text" placeholder="Phone" [value]="data.phone" [(ngModel)]="data.phone" class="form-control" />
+        </div>
+        <div class="input-group">
+          <label>E-mail</label>
+          <input type="email" placeholder=" Email" [(ngModel)]="data.email" [value]="data.email" class="form-control" />
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" placeholder=" Password" [(ngModel)]="data.password" [readonly]="isReadOnly" [value]="data.password"
+            class="form-control" />
+          <button class="btn btn-primary btn-xs btn-change-password" *ngIf="showPasswordDiv" (click)="OnPressChangePassword()"> Change Password </button>
+        </div>
+        <div *ngIf="PasswordDiv">
+          <div class="input-group">
+            <label>Password</label>
+            <input type="password" placeholder=" Password" [(ngModel)]="Confirmpassword" [readonly]="isReadOnly" class="form-control"
+            />
+          </div>
+          <div class="div-save-password">
+            <button class="btn btn-primary btn-xs" (click)="OnPressSavePassword()"> Save Password </button>
+            <button class="btn btn-primary btn-xs" (click)="OnPressCancel()"> Cancel</button>
+          </div>
+        </div>
+        <div class="input-group">
+          <button class="btn btn-primary btn-lg btn-save-changes" (click)="OnPressSubmit()">Save Changes</button>
+        </div>
+      </nb-card-body>
+    </nb-card>
+
+  </div>
+</div>

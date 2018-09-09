@@ -1,0 +1,11 @@
+<nb-card [size]="breakpoint.width >= breakpoints.xxxl || breakpoint.width < breakpoints.md ? 'large' : 'xlarge'">
+      <nb-card-header>
+Resent Messages
+      </nb-card-header>
+      <nb-card-body>
+          <div class="contact" *ngFor="let c of recent">
+              <nb-user [picture]="c.user.picture" [name]="c.user.name" [title]="c.type" size="large"></nb-user>
+              <span class="time">{{ c.time }}</span>
+            </div>
+      </nb-card-body>
+</nb-card>

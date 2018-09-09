@@ -41,6 +41,20 @@ const routes: Routes = [{
     path: 'message-notification',
      loadChildren: './message-notfication/message-notification.module#MessageAndNotificatiomModule',
    },
+   {
+    path: 'profile',
+     loadChildren: './Profile/profile.module#profileModule',
+   },
+   {
+    path: 'main',
+     loadChildren: './Main-page/main-page.module#mainPageModule',
+   },
+
+   {
+      path: '',
+      redirectTo: 'main',
+      pathMatch: 'full',
+    }
 ]
 
 

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from '@angular/router';
+import { SmartTableService } from '../../../@core/data/smart-table.service';
+
 
 @Component({
   selector: 'ngx-show-slide',
@@ -15,9 +17,19 @@ export class showSlidePage {
   ]
   imageShow:any;
   File:any;
+  Visable:any=false;
+  data:any;
+  OrignalData:any;
+  theDataAdd:any=[];
+  dataPushed:any=false;
 
-constructor(public router:Router) {
+
+constructor(public router:Router , public service:SmartTableService) {
   this.imageShow=this.imagesSlider[0];
+  this.data=this.service.getData();
+  this.OrignalData=this.data;
+
+
 }
 
   OnPressSubmit(){
@@ -50,6 +62,38 @@ constructor(public router:Router) {
   }
   OnChangeFile(event){
   this.File=event.target.files;
+  }
+  searchByProductName(event){
+    let newArray=[];
+let value =event.target.value.toUpperCase();
+for (let index = 0; index < this.data.length; index++) {
+  if (this.data[index].firstName.toUpperCase().indexOf(value) > -1) {
+   newArray.push(this.data[index])
+  }
+  this.Visable=true;
+}
+this.data=newArray;
+if(value==""||value==null){
+  this.data=this.OrignalData;
+  this.Visable=false;
+}
+
+  }
+  OnPressDown(){
+document.getElementById("sel1").focus();
+  }
+  OnPressEnter(d){
+    debugger
+  }
+  select(event){
+    console.log(event.target.id);
+    let x=event.target.value;
+    this.theDataAdd.push(x);
+   this.dataPushed=true;
+
+  }
+  OnPressDeleteDataPushed(i){
+    this.theDataAdd.splice(i,1);
   }
 }
 

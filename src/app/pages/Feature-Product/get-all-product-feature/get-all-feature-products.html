@@ -1,8 +1,6 @@
 <nb-card>
   <nb-card-header>
-    Smart Table
   </nb-card-header>
-
   <nb-card-body>
 
       <div class="container">
@@ -31,8 +29,8 @@
               </tr>
               <tr *ngFor="let x of data;let i = index" >
                 <td>{{x.firstName}}</td>
-                <td> <button  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
-                <td><button (click)="OnPressEdit(i,x.id)"><i class="fa fa-edit"></i></button></td>
+                <td> <button class="btn btn-primary btn-xs"  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
+                <td><button class="btn btn-primary btn-xs"  (click)="OnPressEdit(i,x.id)"><i class="fa fa-edit"></i></button></td>
                 <td> <ngx-active-nonActive [DataSource]="x" ></ngx-active-nonActive>  </td>
                 <td> <button type="button" class="btn btn-warning btn-xs"  (click)="OnPressShow(i,x.id)">Show Slider</button> </td>
               </tr>

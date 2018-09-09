@@ -6,7 +6,7 @@ const routes: Routes = [
 
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
 
-  { path: '', redirectTo: 'pages', pathMatch: 'full' },
+  { path: '', redirectTo: 'auth', pathMatch: 'full' },
   { path: '**', redirectTo: 'pages' },
 ];
 

@@ -35,3 +35,29 @@
   }
 
 }
+.input-group{
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  label{
+    margin: 15px;
+  }
+  input{
+    width: 500px;
+    height: 40px;
+  }
+  button{
+    height: 49px;
+    width: 75px;
+  }
+}
+.search-results{
+  display: contents;
+}
+.data-added{
+  display: flex;
+    margin: 14px;
+    button{
+      margin: 10px;
+    }
+}

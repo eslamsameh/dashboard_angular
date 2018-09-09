@@ -1,0 +1,64 @@
+@import '../../@theme/styles/themes';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+@include nb-install-component() {
+
+  nb-card-body {
+    overflow: visible;
+  }
+
+  .input-group {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    input{
+      padding: 2px;
+      margin: 0px;
+    }
+    button{
+      border-radius: 10px;
+      width: 80%;
+      height: 45px;
+      margin-top: -7px;
+
+    }
+    .btn-save-changes{
+      margin: 10px;
+    }
+    .btn-change-password{
+       width: 130px;
+    }
+
+    img{
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+
+    }
+    .btn-upload-img{
+        width: 35%;
+        height: 50px;
+    }
+    label{
+      margin: 13px;
+    }
+  }
+.row{
+  justify-content: center;
+}
+  .validation-checkboxes {
+    display: flex;
+    justify-content: space-between;
+
+    .custom-control {
+      margin-left: 1rem;
+    }
+  }
+
+
+}
+.div-save-password{
+ display: flex;
+ justify-content: space-between;
+}

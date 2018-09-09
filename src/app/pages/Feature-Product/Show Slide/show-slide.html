@@ -1,3 +1,22 @@
+<div class="input-group">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductName($event)" (keyup.arrowdown)="OnPressDown()">
+      <button type="submit" class="btn btn-primary btn-xs"><i class="fa fa-search"></i></button>
+    </form>
+   <div class="search-results"   >
+      <select class="form-control" id="sel1" multiple *ngIf="Visable"  (keyup.enter)="select($event)">
+          <option  *ngFor="let d of data "(click)="select($event)" >{{d.firstName}}</option>
+
+        </select>
+   </div>
+  </div>
+  <div *ngIf="dataPushed" class="data-added" >
+    <div *ngFor="let a of theDataAdd ; let i=index">
+        <button class="btn btn-primary btn-xs" (click)="OnPressDeleteDataPushed(i)">{{a}}</button>
+    </div>
+
+
+  </div>
 <div class="container"  >
 <img [src]="imageShow" alt="">
   <div class="row">
@@ -10,5 +29,6 @@
    <input type="file" (change)="OnChangeFile($event)" >
    <button type="button" class="btn btn-primary" (click)="UploadPhoto()">Upload Photo </button>
   </div>
+
 </div>
 

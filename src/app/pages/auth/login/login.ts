@@ -1,13 +1,26 @@
 import { Component } from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'ngx-login',
   templateUrl: './login.html',
-  styles: ['./login.scss'],
+  styleUrls: ['./login.scss'],
 })
 export class LoginPageComponent {
+  userName:any;
+  password:any;
 
+  constructor(public router:Router) {
+
+
+  }
+  OnPressLogin(){
+this.router.navigateByUrl('pages')
+  }
+  OnPressForget(){
+    debugger;
+
+  }
 
 }

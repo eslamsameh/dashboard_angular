@@ -50,7 +50,7 @@ if(value==""||value==null){
   }
 
   onPressActive(i){
-    debugger;
+
     this.isnotActive[i]=!this.isnotActive[i];
     this.isActive[i]=!this.isActive[i];
   }
