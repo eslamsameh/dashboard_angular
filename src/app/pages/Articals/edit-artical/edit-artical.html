@@ -15,8 +15,8 @@
             <input type="text" placeholder="Article title" class="form-control"/>
           </div>
             <div class="input-group">
-                <label for="sel1">Select Category</label>
-                <select class="form-control" id="sel1">
+                <label >Select Category</label>
+                <select class="form-control" >
                   <option>Select Category</option>
                   <option>tv</option>
                   <option>couch</option>
@@ -24,8 +24,8 @@
                 </select>
               </div>
               <div class="input-group">
-                  <label for="sel1">Select SubCategory</label>
-                  <select class="form-control" id="sel1">
+                  <label >Select SubCategory</label>
+                  <select class="form-control" >
                     <option>Select SubCategory</option>
                     <option>tv</option>
                     <option>couch</option>
@@ -34,7 +34,7 @@
                 </div>
               <div class=" div-search">
                   <input  class="form-control py-2 search"
-                   type="search" placeholder="Artical Tage" (keyup)="filter($event)">
+                   type="search" placeholder="Artical Tage" (keyup)="filter($event)" (keyup.arrowdown)="OnMoveDown()">
       <span class="input-group-append">
         <button class="btn btn-outline-secondary search-btn-icon" type="button">
             <i class="fa fa-search"></i>
@@ -42,17 +42,15 @@
       </span>
                 </div>
                 <div  *ngIf="FilterItemsShowInSearch" >
-                    <div  style="overflow: scroll;width: 87%; background: white; max-height: 140px;"  >
-                 <div  *ngFor="let d of data; let i=index">
+                  <div class="search-results"   >
+                    <select class="form-control" id="sel1" multiple [(ngModel)]="selectedArticle"  (keyup.enter)="select(selectedArticle)">
+                        <option  *ngFor="let d of data" [value]="d" (click)="select($event)" >{{d.ArticalTag}}</option>
 
-
-                     <button style="color: black; margin: 10px; border: 0px;background: transparent;"
-                      (click)="OnSelectOption(i,d.id)"> {{d.ArticalTag}}</button>
-
-                     </div>
+                      </select>
+                 </div>
 
                  </div>
-                </div>
+
                 <div *ngIf="VisablityOfSelectedTagUser" class="card">
                   <div style="width: 60px;" *ngFor="let i of itemTagUserSelected; let idx=index ">
                    <button (click)="OnPressArticalSelectTag(idx)" >
@@ -65,8 +63,7 @@
 
                 <div class="input-group">
                     <nb-card>
-                        <nb-card-header>
-                        </nb-card-header>
+
                         <nb-card-body>
                           <ngx-tiny-mce></ngx-tiny-mce>
                         </nb-card-body>

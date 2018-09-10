@@ -9,10 +9,7 @@ import {Router} from '@angular/router';
 export class editProduct {
   starRate = 2;
   heartRate = 4;
-constructor(public router:Router) {
-
-
-}
+constructor(public router:Router) {}
 
   OnPressSubmit(){
     this.router.navigateByUrl('/pages/products/get-all-products');

@@ -23,13 +23,10 @@ export class showSlidePage {
   theDataAdd:any=[];
   dataPushed:any=false;
 
-
 constructor(public router:Router , public service:SmartTableService) {
   this.imageShow=this.imagesSlider[0];
   this.data=this.service.getData();
   this.OrignalData=this.data;
-
-
 }
 
   OnPressSubmit(){
@@ -45,17 +42,14 @@ constructor(public router:Router , public service:SmartTableService) {
       if (this.imageShow==this.imagesSlider[last]) {
         this.imagesSlider.splice(i,1);
         this.imageShow=this.imagesSlider[i-1];
-      }
-      else {
 
-        this.imagesSlider.splice(i,1);
+      }else { this.imagesSlider.splice(i,1);
         this.imageShow=this.imagesSlider[i];
       }
+         } else{
+          this.imagesSlider.splice(i,1);
+        }
 
-         }
-    else{
-      this.imagesSlider.splice(i,1);
-    }
   }
   UploadPhoto(){
 
@@ -67,9 +61,7 @@ constructor(public router:Router , public service:SmartTableService) {
     let newArray=[];
 let value =event.target.value.toUpperCase();
 for (let index = 0; index < this.data.length; index++) {
-  if (this.data[index].firstName.toUpperCase().indexOf(value) > -1) {
-   newArray.push(this.data[index])
-  }
+  if (this.data[index].firstName.toUpperCase().indexOf(value) > -1) { newArray.push(this.data[index])}
   this.Visable=true;
 }
 this.data=newArray;
@@ -77,24 +69,8 @@ if(value==""||value==null){
   this.data=this.OrignalData;
   this.Visable=false;
 }
+  }
 
-  }
-  OnPressDown(){
-document.getElementById("sel1").focus();
-  }
-  OnPressEnter(d){
-    debugger
-  }
-  select(event){
-    console.log(event.target.id);
-    let x=event.target.value;
-    this.theDataAdd.push(x);
-   this.dataPushed=true;
-
-  }
-  OnPressDeleteDataPushed(i){
-    this.theDataAdd.splice(i,1);
-  }
 }
 
 

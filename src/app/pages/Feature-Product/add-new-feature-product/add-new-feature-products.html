@@ -3,33 +3,30 @@
     <nb-card>
       <nb-card-header></nb-card-header>
       <nb-card-body>
-
         <div class="input-group">
-          <input type="text" placeholder="slider Name" class="form-control"/>
+          <input type="text" placeholder="slider Name" class="form-control" />
         </div>
-            <div class="input-group">
-                <label for="sel1">Select Slider For</label>
-                <select class="form-control" id="sel1" (change)="select($event)">
-                  <option>Product</option>
-                  <option>Category</option>
-                </select>
-              </div>
-              <div class="input-group" *ngIf="iscategory">
-                <label for="sel1">Select Sub Category</label>
-                <select class="form-control" id="sel1">
-                  <option>Select Category</option>
-                  <option>Category1</option>
-                  <option>Category2</option>
-                  <option>Category3</option>
-                  <option>Category4</option>
-                </select>
-              </div>
-
-  <div class="input-group">
-    <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
-    </div>
+        <div class="input-group">
+          <label for="sel1">Select Slider For</label>
+          <select class="form-control" id="sel1" (change)="select($event)">
+            <option>Product</option>
+            <option>Category</option>
+          </select>
+        </div>
+        <div class="input-group" *ngIf="iscategory">
+          <label for="sel1">Select Sub Category</label>
+          <select class="form-control" id="sel1">
+            <option>Select Category</option>
+            <option>Category1</option>
+            <option>Category2</option>
+            <option>Category3</option>
+            <option>Category4</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
+        </div>
       </nb-card-body>
     </nb-card>
-
-   </div>
-   </div>
+  </div>
+</div>

@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { authComponent } from './auth';
 import { LoginPageComponent } from './login/login';
-import { RegisterPageComponent } from './register/register';
+import { SendCodePageComponent } from './Send Code/send-code';
+import { ConfirmPasswordPageComponent } from './Confirm Password/confirm-password';
 
 
 
@@ -20,8 +21,12 @@ const routes: Routes = [{
     path: 'login',
     component:LoginPageComponent,
   }, {
-    path: 'register',
-    component: RegisterPageComponent,
+    path: 'Send-Code',
+    component: SendCodePageComponent,
+  },
+  {
+    path: 'Confirm-Password',
+    component: ConfirmPasswordPageComponent,
   },
 
 ],
@@ -43,6 +48,7 @@ export class authRoutnigModule {
 export const routedComponents = [
   authComponent,
   LoginPageComponent,
-  RegisterPageComponent,
+  SendCodePageComponent,
+  ConfirmPasswordPageComponent
 
 ];

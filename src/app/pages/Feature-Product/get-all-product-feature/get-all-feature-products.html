@@ -2,18 +2,15 @@
   <nb-card-header>
   </nb-card-header>
   <nb-card-body>
-
       <div class="container">
           <h2>Feature Products</h2>
        <div class="btn-add-product">
           <button (click)="onPressAdd()">Add Product</button>
-
        </div>
           <table class="table">
             <thead>
               <tr>
                 <th>Slider Name</th>
-
                 <th>Remove</th>
                 <th>Edit</th>
                 <th>status</th>
@@ -25,7 +22,6 @@
                   <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductName($event)">
                   <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
                 </form></td>
-
               </tr>
               <tr *ngFor="let x of data;let i = index" >
                 <td>{{x.firstName}}</td>
@@ -34,11 +30,8 @@
                 <td> <ngx-active-nonActive [DataSource]="x" ></ngx-active-nonActive>  </td>
                 <td> <button type="button" class="btn btn-warning btn-xs"  (click)="OnPressShow(i,x.id)">Show Slider</button> </td>
               </tr>
-
             </tbody>
           </table>
         </div>
-
-
   </nb-card-body>
 </nb-card>

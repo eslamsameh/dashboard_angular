@@ -15,55 +15,42 @@ export class AllArticalCategoryComponent {
   max:any=1000;
   range:any;
 
-
-
     constructor(private service: categoryService,public router:Router) {
       this.data = this.service.getData();
       this.OrginalData=this.data;
-
-
     }
-
     OnPressDelete(idx,id){
 
       this.data.splice(idx,1)
     }
+
     OnPressEdit(idx,id){
       this.router.navigate(['/pages/artical-category/edit-artical-category/', id]);
     }
+
     onPressAdd(){
       this.router.navigateByUrl('/pages/category/add-new-category');
     }
+
     searchByProductName(event){
-      let newArray=[];
+  let newArray=[];
   let value =event.target.value.toUpperCase();
   for (let index = 0; index < this.data.length; index++) {
-    if (this.data[index].CategoryName.toUpperCase().indexOf(value) > -1) {
-     newArray.push(this.data[index])
-    }
+    if (this.data[index].CategoryName.toUpperCase().indexOf(value) > -1) {newArray.push(this.data[index])}
   }
   this.data=newArray;
-  if(value==""||value==null){
-    this.data=this.OrginalData;
-  }
+  if(value==""||value==null){this.data=this.OrginalData;}
     }
 
     OnChangeSelectSortBy(e){
       let ChossenSorting=e.target.value;
-      if(ChossenSorting=="Price"){
-
-        this.PriceRange=true;
-      }
-      else{
-        this.PriceRange=false;
-      }
-
-
+      if(ChossenSorting=="Price"){this.PriceRange=true;} else{this.PriceRange=false;}
     }
+
     OnPressSearch(){
   this.range=this.max-this.min;
-  console.log(this.range);
     }
+
     OnPressCancel(){
       this.PriceRange=false;
     }

@@ -112,16 +112,6 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/message-notification//message',
   },
 
-  // {
-  //   title: 'Tables',
-  //   icon: 'nb-tables',
-  //   children: [
-  //     {
-  //       title: 'Smart Table',
-  //       link: '/pages/tables/smart-table',
-  //     },
-  //   ],
-  // },
   {
     title: 'ManageUser',
     icon: 'nb-person',
@@ -141,28 +131,5 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'nb-person',
     link: '/pages/profile',
   },
-
-  // {
-  //   title: 'Auth',
-  //   icon: 'nb-locked',
-  //   children: [
-  //     {
-  //       title: 'Login',
-  //       link: '/auth/login',
-  //     },
-  //     {
-  //       title: 'Register',
-  //       link: '/auth/register',
-  //     },
-  //     {
-  //       title: 'Request Password',
-  //       link: '/auth/request-password',
-  //     },
-  //     {
-  //       title: 'Reset Password',
-  //       link: '/auth/reset-password',
-  //     },
-  //   ],
-  // },
 
 ];

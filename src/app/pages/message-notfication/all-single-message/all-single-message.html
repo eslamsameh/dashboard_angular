@@ -5,11 +5,8 @@
       <div class="container" *ngFor="let c of converstation" >
           <div *ngIf="c.admin==0"  class="form-control direction-ltr"  >{{c.message}}</div>
           <div *ngIf="c.admin==1"  class="form-control direction-rtl"  >{{c.message}}</div>
-
         </div>
-
   </div>
-
 </div>
 <div class="input-group">
     <input type="text" rows="5" placeholder="Text Area" [(ngModel)]="Send" class="form-control" (keyup.enter)="OnPressSendMessage()">

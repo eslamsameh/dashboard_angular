@@ -1,0 +1,96 @@
+.card{
+  margin: auto;
+ margin-top: 5%;
+ width: 100%;
+ box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  padding-top: 15px;
+  .card-header{
+background: white;
+border: 0px;
+i{
+  float: left;
+    margin: 3px 15px;
+    font-size: 20px;
+    color: #568aeb;
+}
+  }
+
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.enter-your-email{
+  width: 100%;
+  input{
+    margin-top: 15px;
+    width: 90%;
+    margin: 0px 5%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    outline: none;
+  }
+}
+.btn-Send-Email{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  button{
+    margin-top: 13px;
+    width: 80%;
+    background: #952626;
+    outline: none;
+    border-radius: 10px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+  }
+}
+.row{
+  margin: 3% 25%;
+  .col-5{
+    border-bottom: 1px solid #952626;
+  }
+}
+
+.btn-Send-phone{
+  display: flex;
+  justify-content: center;
+  margin: 15px;
+  button{
+    margin-top: 13px;
+    width: 80%;
+    outline: none;
+    border-radius: 10px;
+    height: 45px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+    border: none;
+  }
+}
+.enter-your-phone{
+  width: 100%;
+  input{
+    margin-top: 15px;
+    width: 90%;
+    margin: 0px 5%;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    outline: none;
+  }
+}
+.resend-phone{
+  margin: 15px;
+}
+a:not([href]):not([tabindex]) {
+  color: inherit;
+  text-decoration: underline;
+  cursor:pointer;
+}
+a:not([href]):not([tabindex]):hover {
+  text-decoration:none;
+  text-shadow: 1px 1px 1px #555;
+}

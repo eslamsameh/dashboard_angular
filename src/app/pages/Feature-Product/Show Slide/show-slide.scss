@@ -29,16 +29,17 @@
 .Add-ImageSlider{
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: 5px ;
   input{
     margin-top: 10px;
   }
 
 }
 .input-group{
-  margin: 20px 0px;
   display: flex;
   justify-content: center;
+  width: 50%;
+  margin: 20px auto;
   label{
     margin: 15px;
   }

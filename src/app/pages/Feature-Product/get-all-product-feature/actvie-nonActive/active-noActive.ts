@@ -10,7 +10,9 @@ import {Router} from '@angular/router';
 export class ActiveAndNoActiveComponent {
   @Input() DataSource: any;
   active:any=true;
+  
   constructor(public router:Router) {}
+
   Active(id){
 this.active=!this.active
   }

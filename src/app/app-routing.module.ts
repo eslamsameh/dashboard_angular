@@ -5,9 +5,12 @@ const routes: Routes = [
   { path: 'auth', loadChildren: './pages/auth/auth.module#authModule' },
 
   { path: 'pages', loadChildren: 'app/pages/pages.module#PagesModule' },
-
+  {
+    path: 'not-found',
+     loadChildren: './pages/miscellaneous/miscellaneous.module#MiscellaneousModule',
+   },
   { path: '', redirectTo: 'auth', pathMatch: 'full' },
-  { path: '**', redirectTo: 'pages' },
+  { path: '**', redirectTo: 'not-found' },
 ];
 
 const config: ExtraOptions = {

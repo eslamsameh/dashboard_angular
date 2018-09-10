@@ -1,53 +1,74 @@
 <nb-card>
-    <nb-card-header>
-      Smart Table
-    </nb-card-header>
+  <nb-card-header>
 
-    <nb-card-body>
+  </nb-card-header>
 
-        <div class="container">
-            <h2> All Suspended Users</h2>
+  <nb-card-body>
 
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>UserName</th>
-                  <th>Remove</th>
-                  <th>Remove Suspend</th>
-                  <th>Manage User</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="search-container">
-                  <td>  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search" (keyup)="searchByFirstName($event)">
-                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
-                  </form></td>
-                  <td>  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search" (keyup)="searchByLastName($event)">
-                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
-                  </form></td>
-                  <td>  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." name="search"(keyup)="searchByUserName($event)">
-                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
-                  </form></td>
-                </tr>
-                <tr *ngFor="let x of data;let i = index" >
-                  <td>{{x.firstName}}</td>
-                  <td>{{x.lastName}}</td>
-                  <td>{{x.username}}</td>
-                  <td> <button type="button" class="btn btn-secondary btn-xs"  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
-                  <td><button  type="button" class="btn btn-secondary btn-xs"  (click)="OnPressDeleteSuspend(i,x.id)"><i class="nb-close"></i> Delete Suspend</button></td>
-                  <td><button  type="button" class="btn btn-secondary btn-xs"  (click)="OnPressManageUser(i,x.id)"> Manage user</button></td>
+    <div class="container">
+      <h2> All Suspended Users</h2>
 
-                </tr>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>UserName</th>
+            <th>Remove</th>
+            <th>Remove Suspend</th>
+            <th>Manage User</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="search-container">
+            <td>
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" (keyup)="searchByFirstName($event)">
+                <button type="submit" class="btn-search">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </td>
+            <td>
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" (keyup)="searchByLastName($event)">
+                <button type="submit" class="btn-search">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </td>
+            <td>
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" (keyup)="searchByUserName($event)">
+                <button type="submit" class="btn-search">
+                  <i class="fa fa-search"></i>
+                </button>
+              </form>
+            </td>
+          </tr>
+          <tr *ngFor="let x of data;let i = index">
+            <td>{{x.firstName}}</td>
+            <td>{{x.lastName}}</td>
+            <td>{{x.username}}</td>
+            <td>
+              <button type="button" class="btn btn-primary btn-xs" (click)="OnPressDelete(i,x.id)">
+                <i class="nb-close"></i>
+              </button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary btn-xs" (click)="OnPressDeleteSuspend(i,x.id)">
+                <i class="nb-close"></i> Delete Suspend</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-primary btn-xs" (click)="OnPressManageUser(i,x.id)"> Manage user</button>
+            </td>
 
-              </tbody>
-            </table>
-          </div>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
 
 
-    </nb-card-body>
-  </nb-card>
+  </nb-card-body>
+</nb-card>

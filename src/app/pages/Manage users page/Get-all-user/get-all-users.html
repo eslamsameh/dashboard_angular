@@ -1,6 +1,5 @@
 <nb-card>
 
-
   <nb-card-body>
 
     <div class="container">
@@ -35,11 +34,8 @@
           </tr>
           <tr class="search-container">
             <td>
-
-                  <button *ngIf="SelectALL" type="button" class="btn btn-secondary btn-xs" (click)="OnPressSelectAll()">Select All</button>
-                  <button *ngIf="!SelectALL" type="button" class="btn btn-secondary btn-xs" (click)="OnPressNonSelectAll()">NonSelect </button>
-
-
+              <button *ngIf="SelectALL" type="button" class="btn btn-primary btn-xs" (click)="OnPressSelectAll()">Select All</button>
+              <button *ngIf="!SelectALL" type="button" class="btn btn-primary btn-xs" (click)="OnPressNonSelectAll()">NonSelect </button>
             </td>
             <td>
               <form action="/action_page.php">
@@ -82,65 +78,58 @@
             <td>{{x.lastName}}</td>
             <td>{{x.username}}</td>
             <td>
-              <button *ngIf="x.is_suspend==true"  class="btn btn-success btn-xs" data-dismiss="modal" data-toggle="modal" data-target="#myModal"  (click)="OnPressSuspend(i,x.id)">Suspend</button>
-              <button *ngIf="x.is_suspend==false"  class="btn btn-danger btn-xs" data-dismiss="modal" (click)="OnPressSuspend(i,x.id)">UnSuspend</button>
+              <button *ngIf="x.is_suspend==true" class="btn btn-primary btn-xs" data-dismiss="modal" data-toggle="modal" data-target="#myModal"
+                (click)="OnPressSuspend(i,x.id)">Suspend</button>
+              <button *ngIf="x.is_suspend==false" class="btn btn-danger btn-xs" data-dismiss="modal" (click)="OnPressSuspend(i,x.id)">UnSuspend</button>
               <div class="container">
+                <!-- Trigger the modal with a button -->
 
-                  <!-- Trigger the modal with a button -->
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                  <div class="modal-dialog">
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" role="dialog">
-                    <div class="modal-dialog">
-
-                      <!-- Modal content-->
-                      <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Suspend For</h4>
-                          <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-                        </div>
-                        <div class="modal-body">
-                            <form (change)="OnChaneg($event)">
-                                <div class="radio">
-                                  <label><input type="radio" name="optradio"  [(ngModel)]="myRadio" value="For Ever" >For Ever</label>
-                                </div>
-                                <div class="radio">
-                                  <label><input type="radio" name="optradio"  [(ngModel)]="myRadio" value="Date"> Date</label>
-                                </div>
-                                <div  class="Open-date" *ngIf="OpenDate">
-                                    <form>
-                                        Enter a date  from:
-                                        <input type="date" name="bday" [(ngModel)]="from" ><br>
-                                        Enter a date  to:
-                                        <input type="date" name="bday" [(ngModel)]="to" ><br>
-                                      </form>
-                                </div>
-
-                              </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" (click)="OnPressOk()" data-dismiss="modal">Ok</button>
-                          <button type="button" class="btn btn-primary" (click)="OnPressClose()" data-dismiss="modal">Close</button>
-                        </div>
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h4 class="modal-title">Suspend For</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                       </div>
-
+                      <div class="modal-body">
+                        <form (change)="OnChaneg($event)">
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optradio" [(ngModel)]="myRadio" value="For Ever">For Ever</label>
+                          </div>
+                          <div class="radio">
+                            <label>
+                              <input type="radio" name="optradio" [(ngModel)]="myRadio" value="Date"> Date</label>
+                          </div>
+                          <div class="Open-date" *ngIf="OpenDate">
+                            <form>
+                              Enter a date from:
+                              <input type="date" name="bday" [(ngModel)]="from">
+                              <br> Enter a date to:
+                              <input type="date" name="bday" [(ngModel)]="to">
+                              <br>
+                            </form>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" (click)="OnPressOk()" data-dismiss="modal">Ok</button>
+                        <button type="button" class="btn btn-primary" (click)="OnPressClose()" data-dismiss="modal">Close</button>
+                      </div>
                     </div>
                   </div>
-
                 </div>
-
-              <!-- <ngx-select-comp [DataSource]="x" (data)="eventHandler($event)"
-               (dataRemove)=eventHand($event) (dataID)="evenId($event)"
-               [id]='idForChild' (dataChild)='DataChild($event)' [dataParent]="data_child" ></ngx-select-comp> -->
+              </div>
             </td>
-
             <td>
-              <button (click)="OnPressEdit(i,x.id)">
+              <button class="btn btn-primary btn-xs" (click)="OnPressEdit(i,x.id)">
                 <i class="fa fa-edit"></i>
               </button>
             </td>
           </tr>
-
         </tbody>
       </table>
     </div>
@@ -148,4 +137,3 @@
 
   </nb-card-body>
 </nb-card>
-
