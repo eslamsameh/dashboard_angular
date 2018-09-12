@@ -8,7 +8,8 @@ import { Router } from "@angular/router";
 })
 export class addNewProductComponent {
   SelectSub:any=false;
-  image:string="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg";
+  Uploadimage:string="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg"
+  image:string="";
   visabilityUploadBtn:any=false;
   arrayOfImage=[];
   arrayOfImageDiscount=[];
@@ -43,7 +44,7 @@ export class addNewProductComponent {
     this.visabilityUploadBtn=false;
   }
   CancelMainImage(){
-    this.image="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg";
+    this.Uploadimage="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg";
     this.visabilityUploadBtn=false;
     this.VisableUpload=true;
   }

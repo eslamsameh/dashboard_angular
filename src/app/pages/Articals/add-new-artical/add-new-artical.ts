@@ -16,6 +16,13 @@ export class addNewArticalComponent {
   index: any = 0;
   itemTagUserSelected = [];
   VisablityOfSelectedTagUser: any = false;
+  imageUpload:string="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg";
+  VisableUpload:any=true;
+  visabilityUploadBtn: boolean=false;
+  haveParentCategory:any=false;
+  myRadio:any;
+  editorDescription:any;
+  image:any
 
   constructor(public service: ArticalTagesService, public router: Router) {
     this.data = this.service.getData();
@@ -59,5 +66,23 @@ export class addNewArticalComponent {
     console.log(this.selectedArticle);
     this.itemTagUserSelected.push(this.selectedArticle[0]);
     this.VisablityOfSelectedTagUser = true;
+  }
+  ReadUrl(event){
+    this.image=event.target.files;
+    let reader = new FileReader();
+    reader.onload = (e: any) => {this.image = e.target.result;}
+    reader.readAsDataURL(event.target.files[0]);
+    this.visabilityUploadBtn=true;
+    this.VisableUpload=false;
+
+  }
+  UploadMainImage(){
+    this.visabilityUploadBtn=false;
+  }
+  CancelMainImage(){
+    this.image="";
+    this.imageUpload="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg";
+    this.visabilityUploadBtn=false;
+    this.VisableUpload=true;
   }
 }

@@ -1,80 +1,94 @@
-<div class="row">
-    <div class="col-lg-6">
-      <nb-card>
-        <nb-card-header>Default Inputs</nb-card-header>
-        <nb-card-body>
-            <div class="input-group">
-               <img src="../../../../assets/images/camera1.jpg" alt="">
-              </div>
-            <div class="input-group">
-                <input type="file" name="pic" accept="image/*" class="form-control"/>
-                <button class="btn btn-primary btn-lg btn-upload-img">Upload Photo</button>
-              </div>
+<nb-card>
 
-          <div class="input-group">
-            <input type="text" placeholder="Article title" class="form-control"/>
+  <nb-card-header>Edit Artical </nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <label>Artical Title</label>
+          <input type="text" [value]="ArticalData.artical_title" [(ngModel)]="ArticalData.artical_title" placeholder="Category Name"
+            class="form-control" />
+        </div>
+        <div class="input-group">
+          <label>Select Category</label>
+          <select class="form-control" [value]="ArticalData.selectedCategory">
+            <option>Select Category</option>
+            <option>tv</option>
+            <option>couch</option>
+            <option>Rug</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Select SubCategory</label>
+          <select class="form-control" [value]="ArticalData.selectedSubCategory">
+            <option>Select SubCategory</option>
+            <option>tv</option>
+            <option>couch</option>
+            <option>Rug</option>
+          </select>
+        </div>
+        <div class=" div-search">
+          <input class="form-control py-2 search" type="search" placeholder="Artical Tage" (keyup)="filter($event)" (keyup.arrowdown)="OnMoveDown()">
+          <span class="input-group-append">
+            <button class="btn btn-outline-secondary search-btn-icon" type="button">
+              <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
+        <div *ngIf="FilterItemsShowInSearch">
+          <div class="search-results">
+            <select class="form-control" id="sel1" multiple [(ngModel)]="selectedArticle" (keyup.enter)="select(selectedArticle)">
+              <option *ngFor="let d of data" [value]="d" (click)="select($event)">{{d.ArticalTag}}</option>
+
+            </select>
           </div>
-            <div class="input-group">
-                <label >Select Category</label>
-                <select class="form-control" >
-                  <option>Select Category</option>
-                  <option>tv</option>
-                  <option>couch</option>
-                  <option>Rug</option>
-                </select>
-              </div>
-              <div class="input-group">
-                  <label >Select SubCategory</label>
-                  <select class="form-control" >
-                    <option>Select SubCategory</option>
-                    <option>tv</option>
-                    <option>couch</option>
-                    <option>Rug</option>
-                  </select>
-                </div>
-              <div class=" div-search">
-                  <input  class="form-control py-2 search"
-                   type="search" placeholder="Artical Tage" (keyup)="filter($event)" (keyup.arrowdown)="OnMoveDown()">
-      <span class="input-group-append">
-        <button class="btn btn-outline-secondary search-btn-icon" type="button">
-            <i class="fa fa-search"></i>
-        </button>
-      </span>
-                </div>
-                <div  *ngIf="FilterItemsShowInSearch" >
-                  <div class="search-results"   >
-                    <select class="form-control" id="sel1" multiple [(ngModel)]="selectedArticle"  (keyup.enter)="select(selectedArticle)">
-                        <option  *ngFor="let d of data" [value]="d" (click)="select($event)" >{{d.ArticalTag}}</option>
 
-                      </select>
-                 </div>
+        </div>
 
-                 </div>
-
-                <div *ngIf="VisablityOfSelectedTagUser" class="card">
-                  <div style="width: 60px;" *ngFor="let i of itemTagUserSelected; let idx=index ">
-                   <button (click)="OnPressArticalSelectTag(idx)" >
-                     {{i?.ArticalTag}}
-                   </button>
-                  </div>
-
-                </div>
-
-
-                <div class="input-group">
-                    <nb-card>
-
-                        <nb-card-body>
-                          <ngx-tiny-mce></ngx-tiny-mce>
-                        </nb-card-body>
-                      </nb-card>
-                  </div>
-    <div class="btn-add-artical">
-      <button class="btn btn-primary btn-lg" (click)="OnPressSaveDerft()">Save Derft</button>
-      <button class="btn btn-primary btn-lg" (click)="OnPressSave()">Save</button>
+        <div class="card">
+          <div class="row">
+            <div class="col-3" *ngFor="let i of ArticalData.ArticalTag; let idx=index ">
+              <button (click)="OnPressArticalSelectTag(idx)">
+                {{i.ArticalTag}}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <nb-card>
+            <nb-card-body>
+              <ck-editor name="editor1" [(ngModel)]="ArticalData.Artical_discreption" skin="moono-lisa" language="en"></ck-editor>
+            </nb-card-body>
+          </nb-card>
+        </div>
       </div>
-        </nb-card-body>
-      </nb-card>
-
-     </div>
-     </div>
+      <div class="col-6" style="border-left: 1px solid #cbc8c8">
+        <div>
+          <h4>UpLoad Main Image</h4>
+        </div>
+        <div class="input-main-image">
+          <label for="file-input">
+            <img *ngIf="VisableUpload" [src]="imageUpload" style="pointer-events: none" />
+          </label>
+          <img *ngIf="!VisableUpload" [src]="ArticalData.artical_image" style="pointer-events: none" />
+          <div *ngIf="!VisableUpload" class="remove-photo-main" (click)="OnPressRemoveMainImage()">
+            <i class="glyphicon glyphicon-remove "></i>
+          </div>
+          <input id="file-input" type="file" (change)="ReadUrl($event)" />
+        </div>
+        <div class="div-btn-upload-cancel" *ngIf="visabilityUploadBtn">
+          <button class="btn btn-primary btn-xs" (click)="UploadMainImage()">
+            <i class="glyphicon glyphicon-ok"></i>
+          </button>
+          <button class="btn btn-primary btn-xs" (click)="CancelMainImage()">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="btn-submit">
+      <button class="btn btn-danger btn-lg" (click)="OnPressSaveDerft()">Save Derft</button>
+      <button class="btn btn-primary btn-lg" (click)="OnPressSave()">Save</button>
+    </div>
+  </nb-card-body>
+</nb-card>

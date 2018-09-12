@@ -164,3 +164,14 @@
 
 }
 
+.btn-submit{
+  display: flex;
+  justify-content: center;
+
+  button{
+    border-radius: 10px;
+    width: 80%;
+    height: 45px;
+    margin-top: -7px;
+  }
+}

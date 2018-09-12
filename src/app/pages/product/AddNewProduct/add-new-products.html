@@ -90,7 +90,7 @@
         </div>
         <div class="input-main-image">
           <label for="file-input">
-            <img *ngIf="VisableUpload" [src]="image" style="pointer-events: none" />
+            <img *ngIf="VisableUpload" [src]="Uploadimage" style="pointer-events: none" />
           </label>
           <img *ngIf="!VisableUpload" [src]="image" style="pointer-events: none" />
           <input id="file-input" type="file" (change)="ReadUrl($event)" />
@@ -142,7 +142,7 @@
       </div>
     </div>
     <div class="input-group btn-submit">
-      <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
-    </div>
+        <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
+      </div>
   </nb-card-body>
 </nb-card>

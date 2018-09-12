@@ -9,7 +9,7 @@ declare const echarts: any;
   styleUrls: ['./number-of-users.scss'],
   template: `
     <nb-card size="xsmall" class="solar-card">
-      <nb-card-header>Number Of Regiserted Users</nb-card-header>
+      <nb-card-header>Number Of  Users Login Now</nb-card-header>
       <nb-card-body>
         <div echarts [options]="option" class="echart">
         </div>
