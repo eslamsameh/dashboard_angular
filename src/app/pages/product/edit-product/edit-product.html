@@ -1,63 +1,164 @@
-<div class="row">
-  <div class="col-lg-6">
-    <nb-card>
-      <nb-card-header>Default Inputs</nb-card-header>
-      <nb-card-body>
-        <div class="input-group">
-          <img src="../../../../assets/images/camera1.jpg" alt="">
-        </div>
-        <div class="input-group">
-          <input type="file" name="pic" accept="image/*" class="form-control" />
-          <button class="btn btn-primary btn-lg btn-upload-img">Upload Photo</button>
-        </div>
+<nb-card>
 
+  <nb-card-header>Add New Product</nb-card-header>
+  <nb-card-body>
+    <div class=" btn-pdf ">
+      <button class="btn btn-dark " (click)="OnPressDownloadPDF()">
+        <i class="glyphicon glyphicon-download"></i> PDF</button>
+      <button class="btn btn-dark " (click)="OnPressViewPDF()">
+        <i class="glyphicon glyphicon-picture"></i> PDF</button>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
         <div class="input-group">
-          <input type="text" placeholder="product Name" class="form-control" />
+          <label>Product Name</label>
+          <input type="text" placeholder="product Name" class="form-control" [value]="data.productName" [(ngModel)]="data.productName"
+          />
         </div>
         <div class="input-group">
-          <input type="text" placeholder="product price" class="form-control" />
+          <label>Product Price</label>
+          <input type="text" placeholder="product price" class="form-control" [value]="data.productPrice" [(ngModel)]="data.productPrice"
+          />
         </div>
         <div class="input-group">
           <label for="sel1">Select Category</label>
-          <select class="form-control" id="sel1">
+          <select class="form-control" id="sel1" [value]="data.category" (change)="OnChangeSelectCategory($event)">
             <option>Select Category</option>
             <option>tv</option>
             <option>couch</option>
             <option>Rug</option>
           </select>
         </div>
-        <div class="input-group">
+        <div class="input-group" *ngIf="SelectSub">
           <label for="sel1">Select SubCategory</label>
-          <select class="form-control" id="sel1">
+          <select class="form-control" id="sel1" [value]="data.subCategory">
             <option>Select SubCategory</option>
-            <option>tv</option>
-            <option>couch</option>
-            <option>Rug</option>
+            <option>SubCategory1</option>
+            <option>SubCategory2</option>
+            <option>SubCategory3</option>
           </select>
         </div>
         <div class="input-group">
-          <input type="text" placeholder="discount" class="form-control" />
+          <form (change)="OnChaneg($event)">
+            <label>Is Their Discount ?</label>
+            <div class="radio">
+              <label>
+                <input [checked]="data.is_discount" type="radio" name="optradio" [(ngModel)]="data.is_discount" value="Yes">Yes</label>
+            </div>
+            <div class="radio">
+              <label>
+                <input [checked]="data.is_discount" type="radio" name="optradio" [(ngModel)]="data.is_discount" value="No"> No</label>
+            </div>
+            <div class="Open-date" *ngIf="OpenDate">
+              <form>
+                Enter Start Date:
+                <input class="input-radio" [value]="data.startDate" type="date" name="bday" [(ngModel)]="data.startDate">
+                <br> Enter End Date:
+                <input class="input-radio" type="date" [value]="data.endDate" name="bday" [(ngModel)]="data.endDate">
+                <br>
+              </form>
+              <div class="input-group-discount">
+                <label>discount percentage %</label>
+                <input type="number" placeholder="discount percentage" name="percentage" [value]="data.discountPercentage" [(ngModel)]="data.discountPercentage"
+                  class="form-control" />
+              </div>
+              <div class="input-group-discount">
+                <label>Price After Discount</label>
+                <input type="number" placeholder="price after discount" name="Discount" [value]="data.priceAfterDiscount" [(ngModel)]="data.priceAfterDiscount"
+                  class="form-control" />
+              </div>
+              <div class="input-group-discount">
+                <label>Amount Of Offered Items</label>
+                <input type="number" placeholder="Amount Of Offered Items" name="Offered" [value]="data.amountOfOfferedItems" [(ngModel)]="data.amountOfOfferedItems"
+                  class="form-control" />
+              </div>
+            </div>
+          </form>
         </div>
         <div class="input-group">
-          <input type="text" placeholder=" product quantity" class="form-control" />
+          <label>Product Quantity</label>
+          <input type="text" placeholder="product quantity" class="form-control" [value]="data.productQuantity" [(ngModel)]="data.productQuantity"
+          />
         </div>
         <div class="input-group">
-          <input type="text" placeholder=" product status " class="form-control" />
+          <label>Product Status</label>
+          <select class="form-control" id="sel1" [value]="data.productStatus">
+            <option>Select Product Status</option>
+            <option>Active</option>
+            <option>Non Active</option>
+          </select>
         </div>
         <div class="input-group">
           <nb-card>
-            <nb-card-header>
-            </nb-card-header>
             <nb-card-body>
-              <ngx-tiny-mce></ngx-tiny-mce>
+              <ck-editor name="editor1" [(ngModel)]="data.productDiscription" skin="moono-lisa" language="en"></ck-editor>
             </nb-card-body>
           </nb-card>
         </div>
-        <div class="input-group">
-          <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
+      </div>
+      <div class="col-6" style="border-left: 1px solid #cbc8c8">
+        <div>
+          <h4> Main Image</h4>
         </div>
-      </nb-card-body>
-    </nb-card>
+        <div class="input-main-image">
+          <label for="file-input">
+            <img *ngIf="VisableUpload" [src]="image" style="pointer-events: none" />
+          </label>
+          <img *ngIf="!VisableUpload" [src]="data.mainImage" style="pointer-events: none" />
+          <div *ngIf="!VisableUpload" class="remove-photo-main" (click)="OnPressRemoveMainImage()">
+            <i class="glyphicon glyphicon-remove "></i>
+          </div>
 
-  </div>
-</div>
+          <input id="file-input" type="file" (change)="ReadUrl($event)" />
+        </div>
+        <div class="div-btn-upload-cancel" *ngIf="visabilityUploadBtn">
+          <button class="btn btn-primary btn-xs" (click)="UploadMainImage()">
+            <i class="glyphicon glyphicon-ok"></i>
+          </button>
+          <button class="btn btn-primary btn-xs" (click)="CancelMainImage()">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </div>
+        <div *ngIf="AddForDiscout">
+          <h4> Images For Discount</h4>
+        </div>
+        <div class="btn-upload-discount-images" *ngIf="Upload_array_images_discount">
+          <button class="btn btn-danger" (click)="UploadDiscountImages()">Upload Images</button>
+        </div>
+        <div class="row">
+          <div class="col-3" *ngFor="let a of data.discountImages; let i=index">
+            <img [src]="a" alt="">
+            <div class="remove-photo" (click)="OnPressRemoveImageDiscount(i)">
+              <i class="glyphicon glyphicon-remove "></i>
+            </div>
+          </div>
+        </div>
+        <div class="div-discount-images" *ngIf="AddForDiscout">
+          <input id="file-input-discount-image" type="file" (change)="ReadUrlDiscountImages($event)" />
+          <label for="file-input-discount-image" class="btn btn-full-width btn-hero-warning"> Upload Image For Discount</label>
+        </div>
+        <div style="margin-top: 30px;">
+          <h4> Sub Image</h4>
+        </div>
+        <div class="btn-upload-sub-images" *ngIf="Upload_array_images">
+          <button class="btn btn-danger" (click)="UploadSubImages()">Upload Images</button>
+        </div>
+        <div class="row">
+          <div class="col-3" *ngFor="let a of data.subImages; let i=index">
+            <img [src]="a" alt="">
+            <div class="remove-photo" (click)="OnPressRemoveImageSub(i)">
+              <i class="glyphicon glyphicon-remove "></i>
+            </div>
+          </div>
+        </div>
+        <div class="div-btn-sub-image">
+          <input id="file-input-sub" type="file" (change)="ReadUrlSub($event)" />
+          <label class="btn btn-primary" for="file-input-sub">More Images</label>
+        </div>
+      </div>
+    </div>
+    <div class="input-group btn-submit">
+      <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
+    </div>
+  </nb-card-body>
+</nb-card>

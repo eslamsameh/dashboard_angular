@@ -23,7 +23,7 @@ declare const echarts: any;
 })
 export class NumberOfUsersComponent implements AfterViewInit, OnDestroy {
 
-  private value = 50;
+  private value = 10;
 
   @Input('chartValue')
   set chartValue(value: number) {
