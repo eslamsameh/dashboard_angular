@@ -38,12 +38,9 @@
           <div class="search-results">
             <select class="form-control" id="sel1" multiple [(ngModel)]="selectedArticle" (keyup.enter)="select(selectedArticle)">
               <option *ngFor="let d of data" [value]="d" (click)="select($event)">{{d.ArticalTag}}</option>
-
             </select>
           </div>
-
         </div>
-
         <div *ngIf="VisablityOfSelectedTagUser" class="card">
           <div class="row">
             <div class="col-3" *ngFor="let i of itemTagUserSelected; let idx=index ">

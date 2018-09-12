@@ -87,10 +87,8 @@ export class AllSingleMessageComponent implements OnInit {
     this.converstation.push(data);
     setTimeout(() => {
       var objDiv = document.getElementById("div-card");
-
       objDiv.scrollTop = objDiv.scrollHeight;
-    }, 100);
-
+}, 100);
     this.Send = "";
   }
 }

@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "ngx-add-new-feature-product",
@@ -8,8 +9,12 @@ import { Component } from "@angular/core";
 export class addNewFeatureProductPage {
   iscategory: any = false;
 
-  OnPressSubmit() {}
-  select(event) {
+constructor(public router:Router) {}
+OnPressSubmit() {
+    this.router.navigateByUrl("/pages/featureProducts/get-all-feature-products");
+  }
+
+select(event) {
     let choosen = event.target.value;
     if (choosen == "Category") {this.iscategory = true;} else {this.iscategory = false;}
   }

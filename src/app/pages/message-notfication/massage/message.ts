@@ -37,7 +37,7 @@ export class messageComponent {
       }
     }
     this.data = newArray;
-    if (value == "" || value == null) { this.data = this.OrginalData;}
+    if (value == "" || value == null) {this.data = this.OrginalData;}
   }
 
   searchByLastName(event) {
@@ -60,9 +60,7 @@ export class messageComponent {
       }
     }
     this.data = newArray;
-    if (value == "" || value == null) {
-      this.data = this.OrginalData;
-    }
+    if (value == "" || value == null) {this.data = this.OrginalData;}
   }
   OnPressOk() {}
 }

@@ -110,7 +110,6 @@ if(this.data.mainImage){ this.VisableUpload=false;} else{this.VisableUpload=true
   }
   OnPressRemoveImageSub(i){
     this.data.subImages.splice(i,1);
-
   }
   ReadUrlSub(event){
     let reader = new FileReader();
@@ -118,11 +117,7 @@ if(this.data.mainImage){ this.VisableUpload=false;} else{this.VisableUpload=true
     reader.readAsDataURL(event.target.files[0]);
     this.Upload_array_images=true;
   }
-  OnPressDownloadPDF(){
-
-  }
-  OnPressViewPDF(){
-
-  }
+  OnPressDownloadPDF(){}
+  OnPressViewPDF(){}
 }
 

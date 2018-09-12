@@ -36,24 +36,21 @@ constructor(public router:Router , public service:SmartTableService) {
     this.imageShow=this.imagesSlider[i];
   }
   OnPressDeleteImage(i){
-
     if(this.imageShow==this.imagesSlider[i]){
       var last = this.imagesSlider.length-1;
       if (this.imageShow==this.imagesSlider[last]) {
         this.imagesSlider.splice(i,1);
         this.imageShow=this.imagesSlider[i-1];
-
       }else { this.imagesSlider.splice(i,1);
         this.imageShow=this.imagesSlider[i];
       }
          } else{
           this.imagesSlider.splice(i,1);
         }
-
   }
-  UploadPhoto(){
 
-  }
+  UploadPhoto(){}
+
   OnChangeFile(event){
   this.File=event.target.files;
   }
@@ -61,8 +58,9 @@ constructor(public router:Router , public service:SmartTableService) {
     let newArray=[];
 let value =event.target.value.toUpperCase();
 for (let index = 0; index < this.data.length; index++) {
-  if (this.data[index].firstName.toUpperCase().indexOf(value) > -1) { newArray.push(this.data[index])}
-  this.Visable=true;
+  if (this.data[index].firstName.toUpperCase().indexOf(value) > -1)
+      { newArray.push(this.data[index])}
+    this.Visable=true;
 }
 this.data=newArray;
 if(value==""||value==null){

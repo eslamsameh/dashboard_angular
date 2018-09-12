@@ -14,7 +14,6 @@ export class ManageUserComponent {
   userName:any="Eslam Sameh";
   info:any="msh 3aref"
 
-
 constructor(public router:Router) {
 }
 OnPressSaveChanges(){

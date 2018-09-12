@@ -1,74 +1,72 @@
-
-
 <nb-card>
 
-    <nb-card-header>Add New Category</nb-card-header>
-    <nb-card-body>
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="input-group">
-            <label>Category Name</label>
-            <input type="text" placeholder="Category Name" class="form-control" />
-          </div>
-          <div class="input-group">
-              <form (change)="OnChaneg($event)">
-                  <label>Is Their Parent Category ?</label>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optradio" [(ngModel)]="myRadio" value="Yes">Yes</label>
-                  </div>
-                  <div class="radio">
-                    <label>
-                      <input type="radio" name="optradio" [(ngModel)]="myRadio" value="No"> No</label>
-                  </div>
-
-                </form>
-          </div>
-          <div class="input-group" *ngIf="haveParentCategory">
-            <label for="sel1">Parent Category Name</label>
-            <select class="form-control" id="sel1" >
-              <option>Select Category</option>
-              <option>tv</option>
-              <option>couch</option>
-              <option>Rug</option>
-            </select>
-          </div>
-          <div class="input-group">
-            <label>Category Icon</label>
-            <input type="text" placeholder="Category Icon" class="form-control" />
-          </div>
-
-          <div class="input-group">
-            <nb-card>
-              <nb-card-body>
-                <ck-editor name="editor1" [(ngModel)]="editorDescription" skin="moono-lisa" language="en"></ck-editor>
-              </nb-card-body>
-            </nb-card>
-          </div>
+  <nb-card-header>Add New Category</nb-card-header>
+  <nb-card-body>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="input-group">
+          <label>Category Name</label>
+          <input type="text" placeholder="Category Name" class="form-control" />
         </div>
-        <div class="col-6" style="border-left: 1px solid #cbc8c8">
-          <div>
-            <h4>UpLoad Main Image</h4>
-          </div>
-          <div class="input-main-image">
-            <label for="file-input">
-              <img *ngIf="VisableUpload" [src]="imageUpload" style="pointer-events: none" />
-            </label>
-            <img *ngIf="!VisableUpload" [src]="image" style="pointer-events: none" />
-            <input id="file-input" type="file" (change)="ReadUrl($event)" />
-          </div>
-          <div class="div-btn-upload-cancel" *ngIf="visabilityUploadBtn">
-            <button class="btn btn-primary btn-xs" (click)="UploadMainImage()">
-              <i class="glyphicon glyphicon-ok"></i>
-            </button>
-            <button class="btn btn-primary btn-xs" (click)="CancelMainImage()">
-              <i class="glyphicon glyphicon-remove"></i>
-            </button>
-          </div>
-      </div>
-      </div>
-      <div class="input-group btn-submit">
-          <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
+        <div class="input-group">
+          <form (change)="OnChaneg($event)">
+            <label>Is Their Parent Category ?</label>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio" [(ngModel)]="myRadio" value="Yes">Yes</label>
             </div>
-    </nb-card-body>
-  </nb-card>
+            <div class="radio">
+              <label>
+                <input type="radio" name="optradio" [(ngModel)]="myRadio" value="No"> No</label>
+            </div>
+
+          </form>
+        </div>
+        <div class="input-group" *ngIf="haveParentCategory">
+          <label for="sel1">Parent Category Name</label>
+          <select class="form-control" id="sel1">
+            <option>Select Category</option>
+            <option>tv</option>
+            <option>couch</option>
+            <option>Rug</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <label>Category Icon</label>
+          <input type="text" placeholder="Category Icon" class="form-control" />
+        </div>
+
+        <div class="input-group">
+          <nb-card>
+            <nb-card-body>
+              <ck-editor name="editor1" [(ngModel)]="editorDescription" skin="moono-lisa" language="en"></ck-editor>
+            </nb-card-body>
+          </nb-card>
+        </div>
+      </div>
+      <div class="col-6" style="border-left: 1px solid #cbc8c8">
+        <div>
+          <h4>UpLoad Main Image</h4>
+        </div>
+        <div class="input-main-image">
+          <label for="file-input">
+            <img *ngIf="VisableUpload" [src]="imageUpload" style="pointer-events: none" />
+          </label>
+          <img *ngIf="!VisableUpload" [src]="image" style="pointer-events: none" />
+          <input id="file-input" type="file" (change)="ReadUrl($event)" />
+        </div>
+        <div class="div-btn-upload-cancel" *ngIf="visabilityUploadBtn">
+          <button class="btn btn-primary btn-xs" (click)="UploadMainImage()">
+            <i class="glyphicon glyphicon-ok"></i>
+          </button>
+          <button class="btn btn-primary btn-xs" (click)="CancelMainImage()">
+            <i class="glyphicon glyphicon-remove"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="input-group btn-submit">
+      <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
+    </div>
+  </nb-card-body>
+</nb-card>

@@ -1,17 +1,23 @@
 <div class="card">
 
-    <form action="/action_page.php">
-      <div class="container">
-        <label for="uname"><b>Username</b></label>
-        <input type="text" [(ngModel)]="userName" placeholder="Enter Username" name="uname" required>
-        <label for="psw"><b>Password</b></label>
-        <input type="password" [(ngModel)]="password" placeholder="Enter Password" name="psw" required>
-        <button type="submit" (click)="OnPressLogin()">Login</button>
-        <label>
-          <input type="checkbox" checked="checked" name="remember"> Remember me
-        </label>
-        <span class="psw">Forgot <a  href="#/auth/Send-Code">password?</a></span>
-      </div>
-    </form>
+  <form action="/action_page.php">
+    <div class="container">
+      <label for="uname">
+        <b>Username</b>
+      </label>
+      <input type="text" [(ngModel)]="userName" placeholder="Enter Username" name="uname" required>
+      <label for="psw">
+        <b>Password</b>
+      </label>
+      <input type="password" [(ngModel)]="password" placeholder="Enter Password" name="psw" required>
+      <button type="submit" (click)="OnPressLogin()">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember"> Remember me
+      </label>
+      <span class="psw">Forgot
+        <a href="#/auth/Send-Code">password?</a>
+      </span>
+    </div>
+  </form>
 
 </div>

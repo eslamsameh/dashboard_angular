@@ -7,9 +7,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./add-new-admin.scss"]
 })
 export class AddNewAdminComponent {
-  /**
-   *
-   */
+
   constructor(public router: Router) {}
   OnPressSubmit() {
     this.router.navigateByUrl("/pages/manage-admin/get-all-manage-admins");

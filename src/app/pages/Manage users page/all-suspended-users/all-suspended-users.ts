@@ -35,9 +35,7 @@ export class allSuspendedUserPage {
       }
     }
     this.data = newArray;
-    if (value == "" || value == null) {
-      this.data = this.OrginalData;
-    }
+    if (value == "" || value == null) {this.data = this.OrginalData;}
   }
 
   searchByLastName(event) {
@@ -49,9 +47,7 @@ export class allSuspendedUserPage {
       }
     }
     this.data = newArray;
-    if (value == "" || value == null) {
-      this.data = this.OrginalData;
-    }
+    if (value == "" || value == null) {this.data = this.OrginalData;}
   }
   searchByUserName(event) {
     let newArray = [];
@@ -62,8 +58,6 @@ export class allSuspendedUserPage {
       }
     }
     this.data = newArray;
-    if (value == "" || value == null) {
-      this.data = this.OrginalData;
-    }
+    if (value == "" || value == null) { this.data = this.OrginalData;}
   }
 }

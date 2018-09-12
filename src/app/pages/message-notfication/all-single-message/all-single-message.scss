@@ -1,33 +1,32 @@
-.card{
+.card {
   background: transparent;
   height: 424px;
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
-.container{
+.container {
   margin: 10px;
-  div{
+  div {
     width: 30%;
     height: 100%;
     border-radius: 10px;
   }
 }
-.input-group{
+.input-group {
   position: fixed;
   width: 76%;
   right: 3%;
   bottom: 15%;
-  button{
+  button {
     margin-top: 0px;
     height: 36px;
-    margin-top: -2px
-
+    margin-top: -2px;
   }
 }
-.direction-ltr{
-  direction:ltr;
+.direction-ltr {
+  direction: ltr;
   float: left;
 }
-.direction-rtl{
-  direction:rtl;
+.direction-rtl {
+  direction: rtl;
   float: right;
 }

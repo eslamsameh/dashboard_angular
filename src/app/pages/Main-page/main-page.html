@@ -4,10 +4,10 @@
       <div class="col-3">
       </div>
       <div class="col-6">
-          <ngx-number-of-users></ngx-number-of-users>
-        </div>
-        <div class="col-3">
-          </div>
+        <ngx-number-of-users></ngx-number-of-users>
+      </div>
+      <div class="col-3">
+      </div>
     </div>
   </div>
   <div class="row">
@@ -18,55 +18,55 @@
       <ngx-contacts></ngx-contacts>
     </div>
   </div>
- <div class="row">
-   <div class="col-6">
+  <div class="row">
+    <div class="col-6">
       <nb-card>
-          <nb-card-body>
-                  <h2> Resent Products</h2>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>product Name</th>
-                        <th>product Price</th>
-                        <th>Product Description</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let x of data;let i = index" >
-                        <td>{{x.firstName}}</td>
-                        <td>{{x.lastName}}</td>
-                        <td>{{x.username}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-          </nb-card-body>
-        </nb-card>
-   </div>
-   <div class="col-6">
+        <nb-card-body>
+          <h2> Resent Products</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>product Name</th>
+                <th>product Price</th>
+                <th>Product Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of data;let i = index">
+                <td>{{x.firstName}}</td>
+                <td>{{x.lastName}}</td>
+                <td>{{x.username}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </nb-card-body>
+      </nb-card>
+    </div>
+    <div class="col-6">
       <nb-card>
-          <nb-card-body>
-                  <h2> Resent Registerd Users</h2>
-                  <table class="table">
-                    <thead>
-                      <tr>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>User Name</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let x of data;let i = index" >
-                        <td>{{x.firstName}}</td>
-                        <td>{{x.lastName}}</td>
-                        <td>{{x.username}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-          </nb-card-body>
-        </nb-card>
-   </div>
- </div>
-<div>
-  <ngx-ecommerce-charts></ngx-ecommerce-charts>
-</div>
+        <nb-card-body>
+          <h2> Resent Registerd Users</h2>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>User Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let x of data;let i = index">
+                <td>{{x.firstName}}</td>
+                <td>{{x.lastName}}</td>
+                <td>{{x.username}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  </div>
+  <div>
+    <ngx-ecommerce-charts></ngx-ecommerce-charts>
+  </div>
 </div>

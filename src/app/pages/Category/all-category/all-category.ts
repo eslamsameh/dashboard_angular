@@ -33,7 +33,9 @@ export class allCategoryPage {
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
-      if (this.data[index].CategoryName.toUpperCase().indexOf(value) > -1) {newArray.push(this.data[index]);}
+      if (this.data[index].CategoryName.toUpperCase().indexOf(value) > -1) {
+        newArray.push(this.data[index]);
+      }
     }
     this.data = newArray;
     if (value == "" || value == null) {this.data = this.OrginalData;}
@@ -48,7 +50,7 @@ export class allCategoryPage {
     this.range = this.max - this.min;
     console.log(this.range);
   }
-  
+
   OnPressCancel() {
     this.PriceRange = false;
   }

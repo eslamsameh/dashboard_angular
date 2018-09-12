@@ -1,47 +1,44 @@
-.nb-close{
+.nb-close {
   font-weight: bold;
 }
 
-.btn-search{
+.btn-search {
   background: #a4abb3;
   border: 2px solid #a4abb3;
 }
-.btn-add-product{
+.btn-add-product {
   display: flex;
   justify-content: center;
   margin: 20px 0px;
 
-  button{
+  button {
     background: #00d981;
-    border: 2px solid  #00d981;
+    border: 2px solid #00d981;
     width: 20%;
     height: 40px;
     font-size: 20px;
     border-radius: 5px;
-    color:white;
-}
+    color: white;
   }
-.div-sort{
+}
+.div-sort {
   display: flex;
   justify-content: center;
-  label{
+  label {
     margin: 15px;
-
   }
-  select{
+  select {
     width: 25%;
   }
 }
 
-
-.modal-content{
+.modal-content {
   margin-top: 50%;
 }
-.Open-date{
-  input{
+.Open-date {
+  input {
     border: 1px solid;
     border-radius: 5px;
     margin: 10px;
   }
 }
-

@@ -1,7 +1,5 @@
 <nb-card>
-
   <nb-card-body>
-
     <div class="container">
       <h2>All User</h2>
       <div>
@@ -21,7 +19,6 @@
           </select>
         </div>
       </div>
-
       <table class="table">
         <thead>
           <tr>
@@ -73,7 +70,6 @@
                 </label>
               </div>
             </td>
-
             <td>{{x.firstName}}</td>
             <td>{{x.lastName}}</td>
             <td>{{x.username}}</td>
@@ -83,11 +79,9 @@
               <button *ngIf="x.is_suspend==false" class="btn btn-danger btn-xs" data-dismiss="modal" (click)="OnPressSuspend(i,x.id)">UnSuspend</button>
               <div class="container">
                 <!-- Trigger the modal with a button -->
-
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" role="dialog">
                   <div class="modal-dialog">
-
                     <!-- Modal content-->
                     <div class="modal-content">
                       <div class="modal-header">
@@ -133,7 +127,5 @@
         </tbody>
       </table>
     </div>
-
-
   </nb-card-body>
 </nb-card>
