@@ -87,13 +87,7 @@
             <option>Non Active</option>
           </select>
         </div>
-        <div class="input-group">
-          <nb-card>
-            <nb-card-body>
-              <ck-editor name="editor1" [(ngModel)]="data.productDiscription" skin="moono-lisa" language="en"></ck-editor>
-            </nb-card-body>
-          </nb-card>
-        </div>
+
       </div>
       <div class="col-6" style="border-left: 1px solid #cbc8c8">
         <div>
@@ -154,7 +148,33 @@
           <input id="file-input-sub" type="file" (change)="ReadUrlSub($event)" />
           <label class="btn btn-primary" for="file-input-sub">More Images</label>
         </div>
+
+        <div style="margin-top: 30px;">
+          <h4 *ngIf="HasSlider"> Slider Image</h4>
+        </div>
+        <div class="btn-upload-sub-images" *ngIf="Upload_array_slider_images">
+          <button class="btn btn-danger" (click)="UploadSliderImages()">Upload Images</button>
+        </div>
+        <div class="row">
+          <div class="col-3" *ngFor="let a of data.sliderImage; let i=index">
+            <img [src]="a" alt="">
+            <div class="remove-photo" (click)="OnPressRemoveImageSliderImage(i)">
+              <i class="glyphicon glyphicon-remove "></i>
+            </div>
+          </div>
+        </div>
+        <div class="div-btn-sub-image" *ngIf="HasSlider">
+          <input id="file-input-slider" type="file" (change)="ReadUrlSlider($event)" />
+          <label class="btn btn-primary" for="file-input-slider">Upload Slider Images</label>
+        </div>
       </div>
+    </div>
+    <div class="input-group">
+      <nb-card class="card-editor">
+        <nb-card-body>
+          <ck-editor name="editor1" [(ngModel)]="data.productDiscription" skin="moono-lisa" language="en"></ck-editor>
+        </nb-card-body>
+      </nb-card>
     </div>
     <div class="input-group btn-submit">
       <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>

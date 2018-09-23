@@ -3,6 +3,8 @@ import { LocalDataSource } from "ng2-smart-table";
 
 import { SmartTableService } from "../../../@core/data/smart-table.service";
 import { Router } from "@angular/router";
+import { NbThemeService } from "@nebular/theme";
+import { takeWhile } from "rxjs/operators";
 @Component({
   selector: "ngx-all-products",
   styleUrls: ["./all-products.scss"],
@@ -11,17 +13,24 @@ import { Router } from "@angular/router";
 export class allproductsComponent {
   data: any;
   OrginalData: any;
-
-  constructor(private service: SmartTableService, public router: Router) {
+  currentTheme: string;
+  private alive = true;
+  constructor(private service: SmartTableService, public router: Router,public themeService: NbThemeService) {
     this.data = this.service.getData();
     this.OrginalData = this.data;
+    this.themeService.getJsTheme()
+ .pipe(takeWhile(() => this.alive))
+ .subscribe(theme => {
+   this.currentTheme = theme.name;
+
+});
   }
 
   OnPressDelete(id, productid) {
     this.data.splice(id, 1);
   }
   OnPressEdit(idx, productid) {
-    this.router.navigate(["/pages/products/edit-product/", productid]);
+    this.router.navigate(["/pages/products/edit-product/", productid,0]);
   }
   onPressAdd() {
     this.router.navigateByUrl("/pages/products/add-new-product");

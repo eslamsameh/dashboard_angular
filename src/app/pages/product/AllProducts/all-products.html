@@ -7,57 +7,90 @@
       <div class="btn-add-product">
         <button type="button" class="btn " (click)="onPressAdd()">Add Product</button>
       </div>
-      <table class="table">
+      <table class="table not-cosmic" *ngIf="currentTheme !== 'cosmic'">
         <thead>
           <tr>
-            <th>product Name</th>
-            <th>product Price</th>
-            <th>Product Description</th>
-            <th>Remove</th>
-            <th>Edit</th>
+            <th style="width: 1%;"><h6>Action</h6></th>
+            <th><h6>product Name</h6></th>
+            <th><h6>product Price</h6></th>
+            <th><h6>Product Description</h6></th>
+
           </tr>
+          <tr >
+              <td><label>Chosse</label></td>
+              <td>
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByProductName($event)">
+                </form>
+              </td>
+              <td>
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByProductPrice($event)">
+                </form>
+              </td>
+              <td>
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByProductDesc($event)">
+                </form>
+              </td>
+
+            </tr>
         </thead>
         <tbody>
-          <tr class="search-container">
-            <td>
-              <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductName($event)">
-                <button type="submit" class="btn-search">
-                  <i class="fa fa-search"></i>
-                </button>
-              </form>
-            </td>
-            <td>
-              <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductPrice($event)">
-                <button type="submit" class="btn-search">
-                  <i class="fa fa-search"></i>
-                </button>
-              </form>
-            </td>
-            <td>
-              <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductDesc($event)">
-                <button type="submit" class="btn-search">
-                  <i class="fa fa-search"></i>
-                </button>
-              </form>
-            </td>
-          </tr>
+
           <tr *ngFor="let x of data;let i = index">
+              <td style="padding: 0px; ">
+                  <div class="edit-remove">
+                    <div><i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i></div>
+                  <div> <i class="glyphicon glyphicon-pencil"(click)="OnPressEdit(i,x.id)"></i></div>
+                  </div>
+                </td>
             <td>{{x.firstName}}</td>
             <td>{{x.lastName}}</td>
             <td>{{x.username}}</td>
-            <td>
-              <button class="btn btn-primary btn-xs" (click)="OnPressDelete(i,x.id)">
-                <i class="nb-close"></i>
-              </button>
-            </td>
-            <td>
-              <button class="btn btn-primary btn-xs" (click)="OnPressEdit(i,x.id)">
-                <i class="fa fa-edit"></i>
-              </button>
-            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table cosmic" *ngIf="currentTheme == 'cosmic'">
+        <thead>
+          <tr>
+            <th style="width: 1%;"><h6>Action</h6></th>
+            <th><h6>product Name</h6></th>
+            <th><h6>product Price</h6></th>
+            <th><h6>Product Description</h6></th>
+          </tr>
+          <tr style=" background: #494299;">
+              <td>Choose</td>
+              <td>
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByProductName($event)">
+                </form>
+              </td>
+              <td>
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByProductPrice($event)">
+                </form>
+              </td>
+              <td>
+                <form action="/action_page.php">
+                  <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByProductDesc($event)">
+                </form>
+              </td>
+            </tr>
+        </thead>
+        <tbody>
+
+          <tr *ngFor="let x of data;let i = index">
+              <td style="padding: 0px; ">
+                  <div class="edit-remove">
+                    <div><i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i></div>
+                  <div> <i class="glyphicon glyphicon-pencil"(click)="OnPressEdit(i,x.id)"></i></div>
+                  </div>
+                </td>
+            <td>{{x.firstName}}</td>
+            <td>{{x.lastName}}</td>
+            <td>{{x.username}}</td>
           </tr>
         </tbody>
       </table>

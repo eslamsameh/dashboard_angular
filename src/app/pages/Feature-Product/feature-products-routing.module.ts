@@ -17,7 +17,7 @@ const routes: Routes = [{
     component: AllFeatureProductPageComponent,
   },
   {
-    path: 'edit-feature-product/:featureid',
+    path: 'edit-feature-product/:featureid/:id',
     component: editFeatureProduct,
   }
   ,

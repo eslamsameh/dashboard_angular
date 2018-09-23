@@ -4,44 +4,91 @@
     <nb-card-body>
         <div class="container">
             <h2>Messages For Users</h2>
-            <table class="table">
+            <table class="table not-cosmic" *ngIf="currentTheme !== 'cosmic'">
               <thead>
                 <tr>
+                    <th style="width: 1%">Actions</th>
                   <th>FirstName</th>
                   <th>Last Name</th>
                   <th>Email</th>
                   <th>MessageTitle</th>
-                  <th>Remove</th>
-                  <th>Open Message</th>
+
                 </tr>
               </thead>
               <tbody>
                 <tr class="search-container">
+                  <td></td>
                   <td>  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.."  class="search" name="search" (keyup)="searchByFirstName($event)">
-                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="Search.."  class="form-control" name="search" (keyup)="searchByFirstName($event)">
+
                   </form></td>
                   <td>  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." class="search" name="search" (keyup)="searchByLastName($event)">
-                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="Search.." class="form-control" name="search" (keyup)="searchByLastName($event)">
+
                   </form></td>
                   <td>  <form action="/action_page.php">
-                    <input type="text" placeholder="Search.." class="search" name="search"(keyup)="searchByEmail($event)">
-                    <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
+                    <input type="text" placeholder="Search.." class="form-control" name="search"(keyup)="searchByEmail($event)">
+
                   </form></td>
+                  <td></td>
                 </tr>
                 <tr *ngFor="let x of data;let i = index" >
+                    <td style="padding: 0px; ">
+                        <div class="edit-remove">
+                          <div><i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i></div>
+                        <div> <i class="glyphicon glyphicon-folder-open"(click)="OnPressShowMessage(i,x.id)"></i></div>
+                        </div>
+                      </td>
                   <td>{{x.firstName}}</td>
                   <td>{{x.lastName}}</td>
                   <td>{{x.email}}</td>
                   <td>{{x.Role}}</td>
-                  <td> <button  type="button" class="btn btn-primary btn-xs" (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
-                  <td><button  type="button" class="btn btn-primary btn-xs"
-                    data-dismiss="modal" data-toggle="modal" data-target="#myModal"
-                      (click)="OnPressShowMessage(i,x.id)">Show Message</button></td>
                 </tr>
               </tbody>
             </table>
+
+            <table class="table cosmic" *ngIf="currentTheme == 'cosmic'">
+                <thead>
+                  <tr>
+                    <th style="width: 1%">Actions</th>
+                    <th>FirstName</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>MessageTitle</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="search-container">
+                    <td></td>
+                    <td>  <form action="/action_page.php">
+                      <input type="text" placeholder="Search.."  class="form-control" name="search" (keyup)="searchByFirstName($event)">
+
+                    </form></td>
+                    <td>  <form action="/action_page.php">
+                      <input type="text" placeholder="Search.." class="form-control" name="search" (keyup)="searchByLastName($event)">
+
+                    </form></td>
+                    <td>  <form action="/action_page.php">
+                      <input type="text" placeholder="Search.." class="form-control" name="search"(keyup)="searchByEmail($event)">
+
+                    </form></td>
+                    <td></td>
+                  </tr>
+                  <tr *ngFor="let x of data;let i = index" >
+                      <td style="padding: 0px; ">
+                          <div class="edit-remove">
+                            <div><i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i></div>
+                          <div> <i class="glyphicon glyphicon-folder-open"(click)="OnPressShowMessage(i,x.id)"></i></div>
+                          </div>
+                        </td>
+                    <td>{{x.firstName}}</td>
+                    <td>{{x.lastName}}</td>
+                    <td>{{x.email}}</td>
+                    <td>{{x.Role}}</td>
+                  </tr>
+                </tbody>
+              </table>
           </div>
     </nb-card-body>
   </nb-card>

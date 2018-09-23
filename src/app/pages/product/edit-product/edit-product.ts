@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'ngx-edit-products',
@@ -32,6 +32,9 @@ export class editProduct {
       'https://image.ibb.co/bB8Aj8/category6.jpg',
       'https://image.ibb.co/b7Hgro/cataloge1.jpg',
       'https://image.ibb.co/cLoXxT/category5.jpg'
+    ],
+    sliderImage:[
+
     ]
   }
   SelectSub:any=false;
@@ -43,8 +46,19 @@ export class editProduct {
   visabilityUploadBtn:any=false;
   image:string="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg";
   Upload_array_images:any=false;
+  param:any;
+  HasSlider:any=false;
+  Upload_array_slider_images:any=false;
 
-constructor(public router:Router) {
+constructor(public router:Router, public activatedRoute: ActivatedRoute) {
+  this.activatedRoute.params.subscribe(params => {
+   if(params['sliderId'] != 0){
+     this.HasSlider=true;
+   }
+   else{
+     this.HasSlider=false;
+   }
+  });
   if(this.data.category=="Rug"){this.SelectSub=true;}else{this.SelectSub=false;}
 setTimeout(() => {
   if (this.data.is_discount == "Yes")
@@ -97,7 +111,12 @@ if(this.data.mainImage){ this.VisableUpload=false;} else{this.VisableUpload=true
     this.Upload_array_images_discount=false;
   }
   OnPressRemoveImageDiscount(i){
-    this.data.discountImages.splice(i,1);
+    if(this.data.discountImages.length==1){
+      this.data.discountImages.splice(i,1);
+      this.Upload_array_images_discount=false
+    }else{
+      this.data.discountImages.splice(i,1);
+    }
  }
   ReadUrlDiscountImages(event){
     let reader = new FileReader();
@@ -105,11 +124,36 @@ if(this.data.mainImage){ this.VisableUpload=false;} else{this.VisableUpload=true
     reader.readAsDataURL(event.target.files[0]);
     this.Upload_array_images_discount=true;
   }
+  ReadUrlSlider(event){
+    let reader = new FileReader();
+    reader.onload = (e: any) => {this.data.sliderImage.push(e.target.result);}
+    reader.readAsDataURL(event.target.files[0]);
+    this.Upload_array_slider_images=true;
+  }
+  OnPressRemoveImageSliderImage(i){
+
+    if(this.data.sliderImage.length==1){
+      this.data.sliderImage.splice(i,1);
+      this.Upload_array_slider_images=false;
+    }
+    else{
+      this.data.sliderImage.splice(i,1);
+    }
+  }
+  UploadSliderImages(){
+    this.Upload_array_slider_images=false;
+  }
   UploadSubImages(){
     this.Upload_array_images=false;
   }
   OnPressRemoveImageSub(i){
-    this.data.subImages.splice(i,1);
+    if(this.data.subImages.length==1){
+      this.data.subImages.splice(i,1);
+      this.Upload_array_images=false;
+    }
+    else{
+      this.data.subImages.splice(i,1);
+    }
   }
   ReadUrlSub(event){
     let reader = new FileReader();

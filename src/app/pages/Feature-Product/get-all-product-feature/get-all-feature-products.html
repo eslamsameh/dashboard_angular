@@ -1,37 +1,76 @@
 <nb-card>
-  <nb-card-header>
-  </nb-card-header>
-  <nb-card-body>
+    <nb-card-header>
+    </nb-card-header>
+    <nb-card-body>
       <div class="container">
-          <h2>Feature Products</h2>
-       <div class="btn-add-product">
-          <button (click)="onPressAdd()">Add Product</button>
-       </div>
-          <table class="table">
+        <h2>Feature Products</h2>
+        <div class="btn-add-product">
+          <button class="btn-add-feature" (click)="OnPressAdd()">Add Product Feature</button>
+          <div class="search-filter">
+
+            <input class="form-control" type="text" placeholder="Search.." name="search" (keyup)="searchByProductName($event)">
+            <span class="input-group-append">
+              <button type="submit" class="btn btn-primary btn-search">
+                <i class="fa fa-search"></i>
+              </button>
+            </span>
+
+          </div>
+        </div>
+
+        <table class="table not-cosmic" *ngIf="currentTheme !== 'cosmic'">
+          <thead>
+            <tr>
+              <th style="width: 1%"><h6>Actions</h6></th>
+              <th><h6>Slider Name</h6></th>
+              <th><h6>Active</h6></th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let x of data;let i = index">
+                <td style="padding: 0px;">
+                    <div class="edit-remove">
+                      <div>
+                        <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i)"></i>
+                      </div>
+                      <div>
+                        <i class="glyphicon glyphicon-pencil" (click)="OnPressEdit(i)"></i>
+                      </div>
+                    </div>
+                  </td>
+              <td style="text-align: center">{{x.sliderName}}</td>
+              <td> <ngx-active-nonActive [DataSource]="x" ></ngx-active-nonActive>  </td>
+
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table cosmic" *ngIf="currentTheme == 'cosmic'">
             <thead>
               <tr>
-                <th>Slider Name</th>
-                <th>Remove</th>
-                <th>Edit</th>
-                <th>status</th>
+                  <th style="width: 1%"><h6>Actions</h6></th>
+                  <th><h6>Slider Name</h6></th>
+                  <th><h6>Active</h6></th>
               </tr>
             </thead>
             <tbody>
-              <tr class="search-container">
-                <td>  <form action="/action_page.php">
-                  <input type="text" placeholder="Search.." name="search" (keyup)="searchByProductName($event)">
-                  <button type="submit" class="btn-search"><i class="fa fa-search"></i></button>
-                </form></td>
-              </tr>
-              <tr *ngFor="let x of data;let i = index" >
-                <td>{{x.firstName}}</td>
-                <td> <button class="btn btn-primary btn-xs"  (click)="OnPressDelete(i,x.id)"><i class="nb-close"></i></button></td>
-                <td><button class="btn btn-primary btn-xs"  (click)="OnPressEdit(i,x.id)"><i class="fa fa-edit"></i></button></td>
+              <tr *ngFor="let x of data;let i = index">
+                  <td style="padding: 0px;">
+                      <div class="edit-remove">
+                        <div>
+                          <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i)"></i>
+                        </div>
+                        <div>
+                          <i class="glyphicon glyphicon-pencil" (click)="OnPressEdit(i)"></i>
+                        </div>
+                      </div>
+                    </td>
+                <td style="text-align: center">{{x.sliderName}}</td>
                 <td> <ngx-active-nonActive [DataSource]="x" ></ngx-active-nonActive>  </td>
-                <td> <button type="button" class="btn btn-warning btn-xs"  (click)="OnPressShow(i,x.id)">Show Slider</button> </td>
-              </tr>
+
             </tbody>
           </table>
-        </div>
-  </nb-card-body>
-</nb-card>
+      </div>
+    </nb-card-body>
+  </nb-card>

@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { categoryService } from "../../../@core/data/category.service";
 import { Router } from "@angular/router";
+import { NbThemeService } from "@nebular/theme";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: "ngx-form-elements",
@@ -14,10 +16,19 @@ export class allCategoryPage {
   min: any = 0;
   max: any = 1000;
   range: any;
+  currentTheme: any;
+  private alive=true;
 
-  constructor(private service: categoryService, public router: Router) {
+  constructor(private service: categoryService, public router: Router,public themeService: NbThemeService) {
     this.data = this.service.getData();
     this.OrginalData = this.data;
+    this.data= this.service.getData();
+ this.OrginalData=this.data
+ this.themeService.getJsTheme()
+ .pipe(takeWhile(() => this.alive))
+ .subscribe(theme => {
+   this.currentTheme = theme.name;
+});
   }
 
   OnPressDelete(idx, id) {

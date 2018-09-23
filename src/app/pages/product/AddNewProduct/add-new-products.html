@@ -76,13 +76,7 @@
             <option>Non Active</option>
           </select>
         </div>
-        <div class="input-group">
-          <nb-card>
-            <nb-card-body>
-              <ck-editor name="editor1" [(ngModel)]="editorDescription" skin="moono-lisa" language="en"></ck-editor>
-            </nb-card-body>
-          </nb-card>
-        </div>
+
       </div>
       <div class="col-6" style="border-left: 1px solid #cbc8c8">
         <div>
@@ -140,6 +134,13 @@
           <label class="btn btn-primary" for="file-input-sub">More Images</label>
         </div>
       </div>
+    </div>
+    <div class="input-group">
+      <nb-card class="card-editor">
+        <nb-card-body>
+          <ck-editor name="editor1" [(ngModel)]="editorDescription" skin="moono-lisa" language="en"></ck-editor>
+        </nb-card-body>
+      </nb-card>
     </div>
     <div class="input-group btn-submit">
       <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>

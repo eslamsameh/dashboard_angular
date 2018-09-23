@@ -2,6 +2,8 @@ import { Component } from "@angular/core";
 
 import { SmartTableService } from "../../../@core/data/smart-table.service";
 import { Router } from "@angular/router";
+import { NbThemeService } from "@nebular/theme";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: "ngx-manage-user-table",
@@ -19,10 +21,18 @@ export class GelAllUserPageComponent {
   OpenDate: any = false;
   from: any;
   to: any;
+  currentTheme: string;
+  private alive = true;
 
-  constructor(private service: SmartTableService, public router: Router) {
+  constructor(private service: SmartTableService, public router: Router ,public themeService:NbThemeService) {
     this.data = this.service.getData();
     this.OrginalData = this.data;
+    this.themeService.getJsTheme()
+ .pipe(takeWhile(() => this.alive))
+ .subscribe(theme => {
+   this.currentTheme = theme.name;
+
+});
   }
 
   OnPressEdit(idx, id) {

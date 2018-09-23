@@ -5,59 +5,106 @@
   <nb-card-body>
     <div class="container">
       <h2> All Suspended Users</h2>
-      <table class="table">
+      <table class="table not-cosmic" *ngIf="currentTheme !== 'cosmic'">
         <thead>
           <tr>
+            <th style="width: 1%;">Actions</th>
             <th>First Name</th>
             <th>Last Name</th>
             <th>UserName</th>
-            <th>Remove</th>
             <th>Remove Suspend</th>
-            <th>Manage User</th>
           </tr>
         </thead>
         <tbody>
           <tr class="search-container">
+            <td></td>
             <td>
               <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" (keyup)="searchByFirstName($event)">
-                <button type="submit" class="btn-search">
-                  <i class="fa fa-search"></i>
-                </button>
+                <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByFirstName($event)">
               </form>
             </td>
             <td>
               <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" (keyup)="searchByLastName($event)">
-                <button type="submit" class="btn-search">
-                  <i class="fa fa-search"></i>
-                </button>
+                <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByLastName($event)">
               </form>
             </td>
             <td>
               <form action="/action_page.php">
-                <input type="text" placeholder="Search.." name="search" (keyup)="searchByUserName($event)">
-                <button type="submit" class="btn-search">
-                  <i class="fa fa-search"></i>
-                </button>
+                <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByUserName($event)">
               </form>
             </td>
+            <td></td>
           </tr>
           <tr *ngFor="let x of data;let i = index">
+            <td style="padding: 0px; ">
+              <div class="edit-remove">
+                <div>
+                  <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i>
+                </div>
+                <div>
+                  <i class="glyphicon glyphicon-pencil" (click)="OnPressManageUser(i,x.id)"></i>
+                </div>
+              </div>
+            </td>
             <td>{{x.firstName}}</td>
             <td>{{x.lastName}}</td>
             <td>{{x.username}}</td>
             <td>
-              <button type="button" class="btn btn-primary btn-xs" (click)="OnPressDelete(i,x.id)">
-                <i class="nb-close"></i>
-              </button>
+              <button type="button" class="btn btn-danger btn-xs" (click)="OnPressDeleteSuspend(i,x.id)">
+                <i class="nb-close"></i> Suspend</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table cosmic" *ngIf="currentTheme == 'cosmic'">
+        <thead>
+          <tr>
+            <th style="width: 1%;">Actions</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>UserName</th>
+            <th>Remove Suspend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="search-container">
+            <td></td>
+            <td>
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByFirstName($event)">
+              </form>
             </td>
             <td>
-              <button type="button" class="btn btn-primary btn-xs" (click)="OnPressDeleteSuspend(i,x.id)">
-                <i class="nb-close"></i> Delete Suspend</button>
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByLastName($event)">
+              </form>
             </td>
             <td>
-              <button type="button" class="btn btn-primary btn-xs" (click)="OnPressManageUser(i,x.id)"> Manage user</button>
+              <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search" class="form-control" (keyup)="searchByUserName($event)">
+              </form>
+            </td>
+            <td></td>
+          </tr>
+          <tr *ngFor="let x of data;let i = index">
+            <td style="padding: 0px; ">
+              <div class="edit-remove">
+                <div>
+                  <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i>
+                </div>
+                <div>
+                  <i class="glyphicon glyphicon-pencil" (click)="OnPressManageUser(i,x.id)"></i>
+                </div>
+              </div>
+            </td>
+            <td>{{x.firstName}}</td>
+            <td>{{x.lastName}}</td>
+            <td>{{x.username}}</td>
+            <td>
+              <button type="button" class="btn btn-danger btn-xs" (click)="OnPressDeleteSuspend(i,x.id)">
+                <i class="nb-close"></i> Suspend</button>
             </td>
           </tr>
         </tbody>

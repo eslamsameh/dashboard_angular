@@ -1,0 +1,10 @@
+<div  style="text-align: center; height: 47px; ">
+  <button *ngIf="Add" style="margin-top: 5%;" class="btn btn-primary btn-xs" (click)="OnPressAdd(DataSource.id)">
+    <i style="color:white;" class="glyphicon glyphicon-plus"></i>
+  </button>
+  <button  *ngIf="!Add" style="margin-top: 5%;" class="btn btn-danger btn-xs" (click)="OnPressRemove(DataSource.id)">
+    <i style="color:white;" class="glyphicon glyphicon-remove"></i>
+  </button>
+</div>
+
+

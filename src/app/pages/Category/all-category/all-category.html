@@ -28,12 +28,12 @@
         <button type="button" class="btn" (click)="onPressAdd()">Add Category</button>
       </div>
       <div class="search-container">
-        <form action="/action_page.php">
-          <input type="text" placeholder="Search.." name="search" class="search" (keyup)="searchByProductName($event)">
-          <button type="submit" class="btn-search">
-            <i class="fa fa-search"></i>
-          </button>
-        </form>
+        <div class="search-filter inner-addon left-addon">
+          <input class="form-control search" type="text" placeholder="Search ..." name="search" (keyup)="searchByProductName($event)">
+          <i class="glyphicon glyphicon-search"></i>
+          <span class="input-group-append">
+          </span>
+        </div>
         <div class="form-group div-sort">
           <label for="sel1">Sort By</label>
           <select class="form-control" id="sel1" (change)="OnChangeSelectSortBy($event)">
@@ -44,7 +44,7 @@
           </select>
         </div>
       </div>
-      <table class="table">
+      <table class="table not-cosmic" *ngIf="currentTheme !== 'cosmic'">
         <thead>
           <tr>
             <th>Category Name</th>
@@ -58,22 +58,49 @@
         </thead>
         <tbody>
           <tr *ngFor="let x of data;let i = index">
-            <td style=" padding: 4%;">{{x.CategoryName}}</td>
+            <td >{{x.CategoryName}}</td>
             <td>
               <img class="image-td" [src]="x.imageCategory" alt="">
             </td>
-            <td style=" padding: 4%;">{{x.briefdescription}}</td>
-            <td style=" padding: 4%;">{{x.CategoryParent}}</td>
-            <td style=" padding: 4%;">{{x.numberofproducts}}</td>
-            <td style=" padding: 4%;">
-              <button class="btn btn-primary btn-xs" (click)="OnPressDelete(i,x.id)">
-                <i class="nb-close"></i>
-              </button>
+            <td >{{x.briefdescription}}</td>
+            <td >{{x.CategoryParent}}</td>
+            <td >{{x.numberofproducts}}</td>
+            <td >
+              <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i>
             </td>
-            <td style=" padding: 4%;">
-              <button class="btn btn-primary btn-xs" (click)="OnPressEdit(i,x.id)">
-                <i class="fa fa-edit"></i>
-              </button>
+            <td >
+              <i class="glyphicon glyphicon-pencil" (click)="OnPressEdit(i,x.id)"></i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table cosmic" *ngIf="currentTheme == 'cosmic'">
+        <thead>
+          <tr>
+            <th>Category Name</th>
+            <th>Category image</th>
+            <th>Category Description</th>
+            <th>Parent Category</th>
+            <th> Products</th>
+            <th>Remove</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of data;let i = index">
+            <td >{{x.CategoryName}}</td>
+            <td>
+              <img class="image-td" [src]="x.imageCategory" alt="">
+            </td>
+            <td >{{x.briefdescription}}</td>
+            <td >{{x.CategoryParent}}</td>
+            <td >{{x.numberofproducts}}</td>
+            <td >
+              <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i,x.id)"></i>
+            </td>
+            <td >
+              <i class="glyphicon glyphicon-pencil" (click)="OnPressEdit(i,x.id)"></i>
             </td>
           </tr>
         </tbody>

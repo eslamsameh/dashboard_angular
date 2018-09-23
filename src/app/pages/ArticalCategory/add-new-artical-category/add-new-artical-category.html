@@ -35,13 +35,7 @@
           <label>Category Icon</label>
           <input type="text" placeholder="Category Icon" class="form-control" />
         </div>
-        <div class="input-group">
-          <nb-card>
-            <nb-card-body>
-              <ck-editor name="editor1" [(ngModel)]="editorDescription" skin="moono-lisa" language="en"></ck-editor>
-            </nb-card-body>
-          </nb-card>
-        </div>
+
       </div>
       <div class="col-6" style="border-left: 1px solid #cbc8c8">
         <div>
@@ -63,6 +57,13 @@
           </button>
         </div>
       </div>
+    </div>
+    <div class="input-group">
+      <nb-card class="card-editor">
+        <nb-card-body>
+          <ck-editor name="editor1" [(ngModel)]="editorDescription" skin="moono-lisa" language="en"></ck-editor>
+        </nb-card-body>
+      </nb-card>
     </div>
     <div class="input-group btn-submit">
       <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>

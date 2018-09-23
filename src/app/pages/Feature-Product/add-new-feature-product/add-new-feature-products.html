@@ -1,32 +1,106 @@
-<div class="row">
-  <div class="col-lg-10">
-    <nb-card>
-      <nb-card-header></nb-card-header>
-      <nb-card-body>
-        <div class="input-group">
-          <input type="text" placeholder="slider Name" class="form-control" />
+<nb-card>
+  <nb-card-header>
+  </nb-card-header>
+  <nb-card-body>
+    <div class="container">
+      <h2>Feature Products</h2>
+      <div class="slider-name-for">
+        <div class="slider-name">
+          <label for="sel1">Slider Name</label>
+          <input type="text" class="form-control" placeholder="Slider Name" [(ngModel)]="SliderName">
         </div>
-        <div class="input-group">
+        <div class="select-for">
           <label for="sel1">Select Slider For</label>
           <select class="form-control" id="sel1" (change)="select($event)">
             <option>Product</option>
             <option>Category</option>
           </select>
         </div>
-        <div class="input-group" *ngIf="iscategory">
+        <div class="is-cat" *ngIf="iscategory">
           <label for="sel1">Select Sub Category</label>
-          <select class="form-control" id="sel1">
-            <option>Select Category</option>
+          <select class="form-control" id="sel1" (change)="OnchangeSelectedCategory($event)">
+            <option disabled="true">Select Category</option>
             <option>Category1</option>
             <option>Category2</option>
             <option>Category3</option>
             <option>Category4</option>
           </select>
         </div>
-        <div class="input-group">
-          <button class="btn btn-primary btn-lg" (click)="OnPressSubmit()">Submit</button>
-        </div>
-      </nb-card-body>
-    </nb-card>
-  </div>
-</div>
+      </div>
+      <div class="search-filter inner-addon left-addon">
+        <input class="form-control" type="text" placeholder="Search By Product or Category..." name="search" (keyup)="searchByProductName($event)">
+        <i class="glyphicon glyphicon-search"></i>
+        <span class="input-group-append">
+        </span>
+      </div>
+      <table class="table not-cosmic" *ngIf="currentTheme !== 'cosmic'">
+        <thead>
+          <tr>
+            <th style="width: 1%; text-align: center;">
+              <h6>Add</h6>
+            </th>
+            <th style="text-align: center;">
+              <h6>Product or Category Name</h6>
+            </th>
+            <th style="width: 1%;">Action</th>
+
+          </tr>
+        </thead>
+        <tbody *ngIf="currentTheme !== 'cosmic'">
+          <tr *ngFor="let x of data;let i = index">
+            <td>
+              <ngx-add-remove [DataSource]="x"></ngx-add-remove>
+            </td>
+            <td style="text-align: center;">{{x.firstName}}</td>
+            <td style="padding: 0px;">
+              <div class="edit-remove">
+                <div>
+                  <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i)"></i>
+                </div>
+                <div>
+                  <i class="glyphicon glyphicon-pencil" (click)="OnPressEdit(x.id,i)"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <table class="table cosmic" *ngIf="currentTheme == 'cosmic'">
+        <thead>
+          <tr style=" background: #494299;">
+            <th style="width: 1%; text-align: center;">
+              <h6>Add</h6>
+            </th>
+            <th style="text-align: center;">
+              <h6>Product or Category Name</h6>
+            </th>
+            <th style="width: 1%;">
+              <h6>Actions</h6>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let x of data;let i = index">
+            <td>
+              <ngx-add-remove [DataSource]="x"></ngx-add-remove>
+            </td>
+            <td style="text-align: center;">{{x.firstName}}</td>
+
+            <td style="padding: 0px;">
+              <div class="edit-remove">
+                <div>
+                  <i class="glyphicon glyphicon-trash" (click)="OnPressDelete(i)"></i>
+                </div>
+                <div>
+                  <i class="glyphicon glyphicon-pencil" (click)="OnPressEdit(x.id,i)"></i>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </nb-card-body>
+</nb-card>

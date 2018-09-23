@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { Router } from "@angular/router";
 import { adminUsersSservices } from "../../../@core/data/admin-users.service";
+import { NbThemeService } from "@nebular/theme";
+import { takeWhile } from "rxjs/operators";
 
 @Component({
   selector: "ngx-all-manage-admin",
@@ -10,10 +12,17 @@ import { adminUsersSservices } from "../../../@core/data/admin-users.service";
 export class AllManageAdminsComponent {
   data: any;
   OrginalData: any;
-
-  constructor(private service: adminUsersSservices, public router: Router) {
+  currentTheme: string;
+  private alive = true;
+  constructor(private service: adminUsersSservices, public router: Router ,public themeService: NbThemeService) {
     this.data = this.service.getData();
     this.OrginalData = this.data;
+    this.themeService.getJsTheme()
+    .pipe(takeWhile(() => this.alive))
+    .subscribe(theme => {
+      this.currentTheme = theme.name;
+
+   });
   }
 
   OnPressDelete(i, id) {
