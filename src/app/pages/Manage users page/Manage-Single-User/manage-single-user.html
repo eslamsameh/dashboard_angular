@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-lg-6">
+  <div class="col-lg-12">
     <nb-card>
       <nb-card-header>UserName</nb-card-header>
       <nb-card-body>
@@ -8,15 +8,15 @@
         </div>
         <div class="input-group">
           <label for="">Name</label>
-          <input type="text" [value]="userName" class="form-control" />
+          <input type="text" [value]="userName" class="form-control" style="margin: 15px 0px 0px 30px;" />
         </div>
         <div class="input-group">
           <label for="">Email</label>
-          <input type="text" [value]="userEmail" class="form-control" />
+          <input type="text" [value]="userEmail" class="form-control" style="margin: 5px 0px 0px 30px;" />
         </div>
         <div class="input-group">
           <label for="">Phone</label>
-          <input type="text" [value]="userPhone" class="form-control" />
+          <input type="text" [value]="userPhone" class="form-control" style="margin: 5px 0px 0px 23px;" />
         </div>
         <div class="input-group">
           <label for="">Last Login</label>
@@ -24,14 +24,14 @@
         </div>
         <div class="input-group">
           <label for="">Age</label>
-          <input type="text" [value]="age" class="form-control" readonly="true" />
+          <input type="text" [value]="age" class="form-control" readonly="true" style="margin: 0px 0px 0px 36px;" />
         </div>
         <div class="input-group">
           <label for="">Info</label>
-          <input type="text" [value]="info" class="form-control" readonly="true" />
+          <input type="text" [value]="info" class="form-control" readonly="true" style="margin: 0px 0px 0px 36px;" />
         </div>
         <div class="input-group">
-          <button type="button" class="btn btn-primary btn-xs" (click)="OnPressSaveChanges()">Save Changes</button>
+          <button type="button" class="btn btn-primary " (click)="OnPressSaveChanges()">Save Changes</button>
         </div>
       </nb-card-body>
     </nb-card>
