@@ -36,6 +36,7 @@ export class allproductsComponent {
     this.router.navigateByUrl("/pages/products/add-new-product");
   }
   searchByProductName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -48,6 +49,7 @@ export class allproductsComponent {
   }
 
   searchByProductPrice(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -59,6 +61,7 @@ export class allproductsComponent {
     if (value == "" || value == null) { this.data = this.OrginalData;}
   }
   searchByProductDesc(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {

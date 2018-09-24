@@ -36,6 +36,7 @@ export class allSuspendedUserPage {
   }
 
   searchByFirstName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -48,6 +49,7 @@ export class allSuspendedUserPage {
   }
 
   searchByLastName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -59,6 +61,7 @@ export class allSuspendedUserPage {
     if (value == "" || value == null) {this.data = this.OrginalData;}
   }
   searchByUserName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {

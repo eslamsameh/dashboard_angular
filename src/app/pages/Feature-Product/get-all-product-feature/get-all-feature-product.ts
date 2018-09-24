@@ -37,6 +37,7 @@ constructor(public router:Router,public themeService: NbThemeService) {
 
 
 searchByProductName(event) {
+  this.data=this.OrginalData;
   let newArray = [];
   let value = event.target.value.toUpperCase();
   for (let index = 0; index < this.data.length; index++) {

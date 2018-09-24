@@ -35,6 +35,7 @@ export class AllManageAdminsComponent {
     this.router.navigateByUrl("/pages/manage-admin/add-new-admin");
   }
   searchByFirstName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -47,6 +48,7 @@ export class AllManageAdminsComponent {
   }
 
   searchByLastName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -58,6 +60,7 @@ export class AllManageAdminsComponent {
     if (value == "" || value == null) {this.data = this.OrginalData;}
   }
   searchByEmail(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {

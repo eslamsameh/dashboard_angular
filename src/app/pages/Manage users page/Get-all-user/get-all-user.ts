@@ -40,6 +40,7 @@ export class GelAllUserPageComponent {
   }
 
   searchByFirstName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -52,6 +53,7 @@ export class GelAllUserPageComponent {
   }
 
   searchByLastName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
@@ -63,6 +65,7 @@ export class GelAllUserPageComponent {
     if (value == "" || value == null) {this.data = this.OrginalData;}
   }
   searchByUserName(event) {
+    this.data=this.OrginalData;
     let newArray = [];
     let value = event.target.value.toUpperCase();
     for (let index = 0; index < this.data.length; index++) {
