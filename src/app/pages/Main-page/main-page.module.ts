@@ -13,7 +13,8 @@ import { ChartPanelHeaderComponent } from './charts-panel/chart-panel-header/cha
 import { ChartPanelSummaryComponent } from './charts-panel/chart-panel-summary/chart-panel-summary.component';
 import { ChartModule } from 'angular2-chartjs';
 import { ECommerceProgressSectionComponent } from './progress-section/progress-section.component';
-import {ECommerceLegendChartComponent} from './legend-chart/legend-chart.component'
+import {ECommerceLegendChartComponent} from './legend-chart/legend-chart.component';
+import {StatusCardComponent} from './status-card/status-card.component'
 
 const routes: Routes = [{
   path: '',
@@ -39,6 +40,7 @@ const routes: Routes = [{
    OrdersChartComponent,
    ProfitChartComponent,
    ECommerceProgressSectionComponent,
+   StatusCardComponent
   ],
 
 })

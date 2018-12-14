@@ -68,6 +68,9 @@ if(value==""||value==null){
   this.Visable=false;
 }
   }
+  select(event){
+
+  }
 
 }
 
